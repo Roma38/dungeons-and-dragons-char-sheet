@@ -1,0 +1,15 @@
+.button {
+  padding: 10px 15px;
+  background-color: #f4f0a4;
+  border-radius: 5px;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.primary-button {
+  composes: button;
+  background-color: #68ba6a;
+  font-weight: bold;
+}

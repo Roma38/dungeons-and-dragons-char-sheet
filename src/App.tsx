@@ -1,9 +1,11 @@
+import Button from './components/Button/Button';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      
+      <Button>Click Me</Button>
+      <Button primary>Click Me</Button>
     </div>
   );
 }
