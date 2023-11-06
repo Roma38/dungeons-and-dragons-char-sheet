@@ -7,10 +7,15 @@ interface IProps {
   primary?: boolean;
   disabled?: boolean;
   loading?: boolean;
+  onClick?: () => void;
 }
 
-function Button({children, primary, disabled, loading}: IProps) {
-  return <button className={style[primary ? 'primary-button' : 'button']} disabled={disabled}>
+function Button({children, primary, disabled, loading, onClick}: IProps) {
+  return <button 
+    className={style[primary ? 'primary-button' : 'button']} 
+    onClick={onClick}
+    disabled={disabled}
+  >
     {loading ? <Loader className={style.loader}/> : children}
   </button>;
 }
