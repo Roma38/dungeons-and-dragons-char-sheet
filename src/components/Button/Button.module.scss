@@ -10,6 +10,10 @@
 
 .small {
   padding: 2px;
+  .loader{
+    height: 20px;
+    margin: -6px 0;
+  }
 }
 .large {
   font-size: 20px;
@@ -31,7 +35,7 @@
 
 .loader {
   height: 32px;
-  margin: -10px 0;  // to align loader center and keep button height
+  margin: -11px 0;  // to align loader center and keep button height
 }
 
 
