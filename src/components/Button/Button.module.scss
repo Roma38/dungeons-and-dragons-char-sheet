@@ -8,8 +8,18 @@
   cursor: pointer;
 }
 
+.button:disabled {
+  cursor: not-allowed;
+}
+
 .primary-button {
   composes: button;
   background-color: #68ba6a;
   font-weight: bold;
 }
+
+.loader {
+  height: 32px;
+  margin: -10px 0;  // to align loader center and keep button height
+}
+
