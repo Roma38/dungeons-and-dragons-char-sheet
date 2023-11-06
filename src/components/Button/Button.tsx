@@ -9,12 +9,16 @@ interface IProps {
   loading?: boolean;
   onClick?: () => void;
   size?: 'small' | 'medium' | 'large';
+  circle?: boolean;
 }
 
-function Button({children, primary, disabled, loading, size, onClick}: IProps) {
+function Button({children, primary, disabled, loading, size, circle, onClick}: IProps) {
   let className = style[primary ? 'primary-button' : 'button'];
   if (size && size !== 'medium') {
     className += ' ' + style[size];
+  }
+  if (circle) {
+    className += ' ' + style.circle;
   }
 
   return <button 

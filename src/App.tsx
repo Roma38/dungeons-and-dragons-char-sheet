@@ -17,6 +17,13 @@ function App() {
       <Button primary size='medium'>Click Me</Button>
       <Button size='large'>Click Me</Button>
       <Button primary size='large'>Click Me</Button>
+     
+      <Button size='small' circle>Click Me</Button>
+      <Button primary size='small' circle>Click Me</Button>
+      <Button size='medium' circle>Click Me</Button>
+      <Button primary size='medium' circle>Click Me</Button>
+      <Button size='large' circle>Click Me</Button>
+      <Button primary size='large' circle>Click Me</Button>
     </div>
   );
 }
