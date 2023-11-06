@@ -8,11 +8,17 @@ interface IProps {
   disabled?: boolean;
   loading?: boolean;
   onClick?: () => void;
+  size?: 'small' | 'medium' | 'large';
 }
 
-function Button({children, primary, disabled, loading, onClick}: IProps) {
+function Button({children, primary, disabled, loading, size, onClick}: IProps) {
+  let className = style[primary ? 'primary-button' : 'button'];
+  if (size && size !== 'medium') {
+    className += ' ' + style[size];
+  }
+
   return <button 
-    className={style[primary ? 'primary-button' : 'button']} 
+    className={className} 
     onClick={onClick}
     disabled={disabled}
   >

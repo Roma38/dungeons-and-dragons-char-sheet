@@ -7,6 +7,12 @@
   font-weight: 500;
   cursor: pointer;
 }
+.small {
+  padding: 2px;
+}
+.large {
+  font-size: 20px;
+}
 
 .button:disabled {
   cursor: not-allowed;
@@ -22,4 +28,5 @@
   height: 32px;
   margin: -10px 0;  // to align loader center and keep button height
 }
+
 
