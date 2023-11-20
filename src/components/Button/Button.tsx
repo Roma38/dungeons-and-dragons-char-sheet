@@ -13,7 +13,7 @@ interface IProps {
 }
 
 function Button({children, primary, disabled, loading, size, circle, onClick}: IProps) {
-  let className = style[primary ? 'primary-button' : 'button'];
+  let className = style[primary ? 'primary_button' : 'button'];
   if (size && size !== 'medium') {
     className += ' ' + style[size];
   }
