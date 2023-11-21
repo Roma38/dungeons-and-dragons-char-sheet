@@ -1,0 +1,19 @@
+.size_section {
+  input + input {
+    margin-left: 15px;
+  }
+}
+
+.type_section {
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    label {
+      flex-basis: 50%;
+      margin-bottom: 10px;
+      input {
+        margin-left: 20px;
+      }
+    }
+  }
+}
