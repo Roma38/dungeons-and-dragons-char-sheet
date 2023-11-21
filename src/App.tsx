@@ -1,8 +1,6 @@
 import { useState } from 'react';
-import ButtonsSection from './components/ButtonsSection/ButtonsSection';
-// import InputSection from './components/InputSection/InputSection';
+import { ButtonsSection, InputSection, Navigation } from './components';
 import './App.css';
-import Navigation from './components/Navigation/Navigation';
 
 export const COMPONENTS_TABS = ['button', 'input'] as const;
 
@@ -13,7 +11,7 @@ function App() {
       <h1>Components Library</h1>
       <Navigation activeTab={activeTab} setActiveTab={setActiveTab} />
       {activeTab === 'button' && <ButtonsSection />}
-      {/* {activeTab === 'input' && <InputSection />} */}
+      {activeTab === 'input' && <InputSection />}
     </div>
   );
 }

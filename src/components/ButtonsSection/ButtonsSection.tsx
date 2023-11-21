@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Button from '../Button/Button';
+import { Button } from '../';
 import style from "./ButtonsSection.module.scss";
 
 function ButtonsSection() {
