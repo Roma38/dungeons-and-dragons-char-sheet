@@ -1,0 +1,15 @@
+.navigation {
+  ul {
+    display: flex;
+  }
+
+  li {
+    text-transform: capitalize;
+    margin-right: 40px;
+    cursor: pointer;
+    &.active {
+      text-decoration: underline;
+      font-weight: bold;
+    }
+  }
+}
