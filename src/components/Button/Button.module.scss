@@ -1,6 +1,8 @@
+@import '/src/variables.scss';
+
 .button {
   padding: 10px 15px;
-  background-color: #f4f0a4;
+  background-color: $secondary-color;
   border-radius: 5px;
   border: none;
   font-size: 14px;
@@ -29,7 +31,7 @@
 
 .primary_button {
   composes: button;
-  background-color: #68ba6a;
+  background-color: $primary-color;
   font-weight: bold;
 }
 
