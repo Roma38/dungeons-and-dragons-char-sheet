@@ -1,6 +1,6 @@
 import style from "./Input.module.scss";
 
-interface IProps extends React.ComponentProps<"input"> {
+interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
   inputSize?: 'small' | 'medium' | 'large';
 }
 

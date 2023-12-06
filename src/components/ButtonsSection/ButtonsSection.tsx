@@ -45,20 +45,55 @@ function ButtonsSection() {
 
       <section>
         <h3>Loading</h3>
-        <Button size='small' circle loading={isLoading}>Click Me</Button>
-        <Button primary size='small' loading={isLoading} onClick={() => setIsLoading(!isLoading)}>
+        <Button 
+          size='small' 
+          circle 
+          loading={isLoading}
+        >
           Click Me
         </Button>
-        <Button size='medium' loading onClick={() => setIsLoading(!isLoading)}>
+
+        <Button 
+          primary 
+          size='small' 
+          loading={isLoading} 
+          onClick={() => setIsLoading(!isLoading)}
+        >
           Click Me
         </Button>
-        <Button primary size='medium' circle loading={isLoading} onClick={() => setIsLoading(!isLoading)}>
+
+        <Button 
+          size='medium' 
+          loading onClick={() => setIsLoading(!isLoading)}
+        >
           Click Me
         </Button>
-        <Button size='large' loading={isLoading} onClick={() => setIsLoading(!isLoading)}>
+
+        <Button 
+          primary 
+          size='medium' 
+          circle 
+          loading={isLoading} 
+          onClick={() => setIsLoading(!isLoading)}
+        >
           Click Me
         </Button>
-        <Button primary size='large' circle loading={isLoading} onClick={() => setIsLoading(!isLoading)}>
+
+        <Button 
+          size='large' 
+          loading={isLoading} 
+          onClick={() => setIsLoading(!isLoading)
+        }>
+          Click Me
+        </Button>
+        
+        <Button 
+          primary 
+          size='large' 
+          circle 
+          loading={isLoading} 
+          onClick={() => setIsLoading(!isLoading)}
+        >
           Click Me
         </Button>
       </section>

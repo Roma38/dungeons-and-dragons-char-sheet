@@ -1,9 +1,9 @@
-import { COMPONENTS_TABS } from '../../App';
+import { COMPONENTS_TABS, TComponentTab } from '../../App';
 import style from "./Navigation.module.scss";
 
 interface IProps extends React.ComponentProps<"input"> {
-  activeTab: typeof COMPONENTS_TABS[number];
-  setActiveTab: (tab: typeof COMPONENTS_TABS[number]) => void;
+  activeTab: TComponentTab;
+  setActiveTab: (tab: TComponentTab) => void;
 }
 
 function Navigation({ activeTab, setActiveTab }: IProps) {
