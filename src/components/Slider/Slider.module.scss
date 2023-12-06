@@ -1,0 +1,32 @@
+@import '/src/variables.scss';
+$slider-height: 6px;
+
+.slider {
+  padding: 10px;
+}
+
+.rail {
+  cursor: pointer;
+  position: relative;
+  background-color: rgba($secondary-color, 0.5);
+}
+
+.track {
+  background-color: $primary-color;
+}
+
+.rail, .track {
+  border-radius: 5px;
+  height: $slider-height;
+}
+
+.handle {
+  cursor: grab;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 3px solid $primary-color;
+  background-color: white;
+  transform: translate(-50%, calc( -50% - $slider-height / 2 ));
+}

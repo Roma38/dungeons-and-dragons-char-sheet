@@ -86,7 +86,7 @@ function ButtonsSection() {
         }>
           Click Me
         </Button>
-        
+
         <Button 
           primary 
           size='large' 
@@ -97,8 +97,6 @@ function ButtonsSection() {
           Click Me
         </Button>
       </section>
-
-     
     </div>
   );
 }

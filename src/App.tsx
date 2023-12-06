@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { ButtonsSection, InputSection, Navigation } from './components';
+import { ButtonsSection, InputSection, Navigation, SliderSection } from './components';
 import './App.css';
 
-export type TComponentTab = "button" | "input";
-export const COMPONENTS_TABS: TComponentTab[] = ['button', 'input'];
+export type TComponentTab = 'button' | 'input' | 'slider';
+export const COMPONENTS_TABS: TComponentTab[] = ['button', 'input', 'slider'];
 
 function App() {
   const [activeTab, setActiveTab] = useState(COMPONENTS_TABS[0]);
@@ -13,6 +13,7 @@ function App() {
       <Navigation activeTab={activeTab} setActiveTab={setActiveTab} />
       {activeTab === 'button' && <ButtonsSection />}
       {activeTab === 'input' && <InputSection />}
+      {activeTab === 'slider' && <SliderSection />}
     </div>
   );
 }
