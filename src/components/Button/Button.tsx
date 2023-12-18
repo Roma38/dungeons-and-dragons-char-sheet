@@ -10,19 +10,23 @@ interface IProps {
   onClick?: () => void;
   size?: 'small' | 'medium' | 'large';
   circle?: boolean;
+  className?: string;
 }
 
-function Button({children, primary, disabled, loading, size, circle, onClick}: IProps) {
-  let className = style[primary ? 'primary_button' : 'button'];
+function Button({ children, primary, disabled, loading, size, circle, className, onClick}: IProps) {
+  let resultClassName = style[primary ? 'primary_button' : 'button'];
   if (size && size !== 'medium') {
-    className += ' ' + style[size];
+    resultClassName += ' ' + style[size];
   }
   if (circle) {
-    className += ' ' + style.circle;
+    resultClassName += ' ' + style.circle;
+  }
+  if (className) {
+    resultClassName += ' ' + className;
   }
 
   return <button 
-    className={className} 
+    className={resultClassName} 
     onClick={onClick}
     disabled={disabled}
   >
