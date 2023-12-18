@@ -7,3 +7,9 @@
 h1, h2, h3 {
   text-align: center;
 }
+
+.mode-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
