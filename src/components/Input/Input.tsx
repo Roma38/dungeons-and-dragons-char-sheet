@@ -5,7 +5,7 @@ interface IProps extends React.InputHTMLAttributes<HTMLInputElement> {
 }
 
 function Input({ inputSize = 'medium', ...rest }: IProps) {
-  let className = style.input;
+  let className = style.input + ' input';
   if (inputSize && inputSize !== 'small') {
     className += ' ' + style[inputSize];
   }

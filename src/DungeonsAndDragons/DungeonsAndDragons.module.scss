@@ -1,0 +1,145 @@
+$large-font: 30px;
+$small-font: 10px;
+
+.form {
+  font-size: $small-font;
+}
+
+.top_section {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 20px;
+  justify-content: space-between;
+}
+
+input {
+  width: 100%;
+}
+
+.primary_field {
+  flex-basis: 40%;
+  flex-shrink: 0;
+}
+
+.top_section_fields {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  label {
+    flex-basis: 31%;
+  }
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper {
+  display: flex;
+  gap: 10px;
+}
+
+.first_column {
+  composes: column;
+  flex-basis: 100px;
+  flex-shrink: 0;
+}
+
+.frame{
+  text-align: center;
+  margin-bottom: 10px;
+  border: 1px solid;
+  padding: 5px;
+  input {
+    text-align: center;
+  }
+  input:first-child {
+    font-size: $large-font;
+    margin-bottom: 10px;
+    height: 50px !important;
+  }
+}
+
+.large_number_field {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  input {
+    text-align: center;
+    font-size: $large-font;
+    width: 70px; 
+  }
+  span {
+    flex-grow: 1;
+    text-align: center;
+  }
+}
+
+.second_column {
+  composes: column;
+  width: 230px;
+  flex-shrink: 0;
+}
+
+.bordered_section {
+  composes: column;
+  align-items: center;
+  border: 1px solid;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.small_fields_group {
+  composes: bordered_section;
+  label {
+    width: 100%;
+  }
+  .small_field input {
+    width: 30px;
+    margin-right: 10px;
+  }
+}
+
+.boxes {
+  display: flex;
+  gap: 10px;
+  .bordered_section {
+    justify-content: space-between;
+  }
+}
+
+.bottom_border_field {
+  padding: 0;
+  height: unset !important;
+  border: none;
+  border-bottom: 1px solid;
+  outline: none;
+  box-shadow: none !important;
+  border-radius: 0;
+  margin-bottom: 5px;
+}
+
+.third_column {
+  composes: column;
+  text-align: center;
+}
+
+.frames {
+  display: flex;
+  gap: 10px;
+  text-align: center;
+}
+
+.checkbox_group {
+  display: flex;
+  align-self: end;
+}
+
+.fourth_column {
+  composes: column;
+  text-align: center;
+  gap: 10px;
+}

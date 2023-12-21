@@ -1,17 +1,17 @@
-// import { Input } from '../components';
-// import style from "./InputSection.module.scss";
+import { Input } from '../components';
+import style from "./DungeonsAndDragons.module.scss";
 
 
 function DungeonsAndDragons() {
   return (
-    <form>
-      {/* <section>
-        <label>
+    <form className={style.form}>
+      <section className={style.top_section}>
+        <label className={style.primary_field}>
           <Input />
           CHARACTER NAME
         </label>
 
-        <div>
+        <div className={style.top_section_fields}>
           <label>
             <Input />
             CLASS & LEVEL
@@ -38,276 +38,281 @@ function DungeonsAndDragons() {
           </label>
 
           <label>
-            <Input />
+            <Input type='number' />
             EXPERIENCE POINTS
           </label>
         </div>
       </section>
 
-      <div className="column">
-        <label>
-          <Input />
-          <Input />
-          STRENGTH
-        </label>
-
-        <label>
-          <Input />
-          <Input />
-          DEXTERITY
-        </label>
-
-        <label>
-          <Input />
-          <Input />
-          CONSTITUTION
-        </label>
-
-        <label>
-          <Input />
-          <Input />
-          INTELLIGENCE
-        </label>
-
-        <label>
-          <Input />
-          <Input />
-          WISDOM
-        </label>
-
-        <label>
-          <Input />
-          <Input />
-          CHARISMA
-        </label>
-      </div>
-
-      <div className="column">
-        <div className="section">
-          <label>
-            <Input />
-            INSPIRATION
-          </label>
-
-          <label>
-            <Input />
-            PROFICIENCY BONUS
-          </label>
-        </div>
-
-        <div className="section">
-          <label>
-            <Input />
-            Strength
-          </label>
-
-          <label>
-            <Input />
-            Dexterity
-          </label>
-
-          <label>
-            <Input />
-            Constitution
-          </label>
-
-          <label>
-            <Input />
-            Intelligence
-          </label>
-
-          <label>
-            <Input />
-            Wisdom
-          </label>
-
-          <label>
-            <Input />
-            Charisma
-          </label>
-          SAVING THROWS
-        </div>
-
-        <div className="section">
-          <label>
-            <Input />
-            Acrobatics
-          </label>
-
-          <label>
-            <Input />
-            Animal Handling
-          </label>
-
-          <label>
-            <Input />
-            Arcana
-          </label>
-
-          <label>
-            <Input />
-            Athletics
-          </label>
-
-          <label>
-            <Input />
-            Deception
-          </label>
-
-          <label>
-            <Input />
-            History
-          </label>
-
-          <label>
-            <Input />
-            Insight
-          </label>
-
-          <label>
-            <Input />
-            Intimidation
-          </label>
-
-          <label>
-            <Input />
-            Investigation
-          </label>
-
-          <label>
-            <Input />
-            Medicine
-          </label>
-
-          <label>
-            <Input />
-            Nature
-          </label>
-
-          <label>
-            <Input />
-            Perception
-          </label>
-
-          <label>
-            <Input />
-            Performance
-          </label>
-
-          <label>
-            <Input />
-            Persuasion
-          </label>
-
-          <label>
-            <Input />
-            Religion
-          </label>
-
-          <label>
-            <Input />
-            Sleight of Hand
-          </label>
-
-          <label>
-            <Input />
-            Stealth
-          </label>
-
-          <label>
-            <Input />
-            Survival
-          </label>
-          SKILLS
-        </div>
-      </div>
-
-      <div className="column">  
-        <div className="row">
-          <label>
-            <Input />
-            ARMOR CLASS
-          </label>
-
-          <label>
-            <Input />
-            INITIATIVE
-          </label>
-
-          <label>
-            <Input />
-            SPEED
-          </label>
-        </div>
-
-        <div className="row">
-          <label>
-            Hit Point Maximum
+      <div className={style.wrapper}>
+        <section className={style.first_column}>
+          <label className={style.frame}>
+            STRENGTH
+            <Input value={10} disabled/>
             <Input />
           </label>
 
-          <label>
+          <label className={style.frame}>
+            DEXTERITY
+            <Input value={10} disabled/>
             <Input />
-            CURRENT HIT POINTS
           </label>
-        </div>
 
-        <div className="row">
-          <label>
+          <label className={style.frame}>
+            CONSTITUTION
+            <Input value={10} disabled/>
             <Input />
-            TEMPORARY HIT POINTS
           </label>
-        </div>
 
-        <div className="row">
-          <div className="column">
-            <label>
-              Total
+          <label className={style.frame}>
+            INTELLIGENCE
+            <Input value={10} disabled/>
+            <Input />
+          </label>
+
+          <label className={style.frame}>
+            WISDOM
+            <Input value={10} disabled/>
+            <Input />
+          </label>
+
+          <label className={style.frame}>
+            CHARISMA
+            <Input value={10} disabled/>
+            <Input />
+          </label>
+        </section>
+
+        <section className={style.second_column}>
+          <div>
+            <label className={style.large_number_field}>
               <Input />
+              <span>INSPIRATION</span>
+            </label>
+
+            <label className={style.large_number_field}>
+              <Input />
+              <span>PROFICIENCY BONUS</span>
+            </label>
+          </div>
+
+          <div className={style.small_fields_group}>
+            <label className={style.small_field}>
+              <Input className={style.bottom_border_field} />
+              Strength
+            </label>
+
+            <label className={style.small_field}>
+              <Input className={style.bottom_border_field} />
+              Dexterity
+            </label>
+
+            <label className={style.small_field}>
+              <Input className={style.bottom_border_field} />
+              Constitution
+            </label>
+
+            <label className={style.small_field}>
+              <Input className={style.bottom_border_field} />
+              Intelligence
+            </label>
+
+            <label className={style.small_field}>
+              <Input className={style.bottom_border_field} />
+              Wisdom
+            </label>
+
+            <label className={style.small_field}>
+              <Input className={style.bottom_border_field} />
+              Charisma
+            </label>
+            SAVING THROWS
+          </div>
+
+          <div className={style.small_fields_group}>
+            <label className={style.small_field}>
+              <Input className={style.bottom_border_field} />
+              Acrobatics
+            </label>
+
+            <label className={style.small_field}>
+              <Input className={style.bottom_border_field} />
+              Animal Handling
+            </label>
+
+            <label className={style.small_field}>
+              <Input className={style.bottom_border_field} />
+              Arcana
+            </label>
+
+            <label className={style.small_field}>
+              <Input className={style.bottom_border_field} />
+              Athletics
+            </label>
+
+            <label className={style.small_field}>
+              <Input className={style.bottom_border_field} />
+              Deception
+            </label>
+
+            <label className={style.small_field}>
+              <Input className={style.bottom_border_field} />
+              History
+            </label>
+
+            <label className={style.small_field}>
+              <Input className={style.bottom_border_field} />
+              Insight
+            </label>
+
+            <label className={style.small_field}>
+              <Input className={style.bottom_border_field} />
+              Intimidation
+            </label>
+
+            <label className={style.small_field}>
+              <Input className={style.bottom_border_field} />
+              Investigation
+            </label>
+
+            <label className={style.small_field}>
+              <Input className={style.bottom_border_field} />
+              Medicine
+            </label>
+
+            <label className={style.small_field}>
+              <Input className={style.bottom_border_field} />
+              Nature
+            </label>
+
+            <label className={style.small_field}>
+              <Input className={style.bottom_border_field} />
+              Perception
+            </label>
+
+            <label className={style.small_field}>
+              <Input className={style.bottom_border_field} />
+              Performance
+            </label>
+
+            <label className={style.small_field}>
+              <Input className={style.bottom_border_field} />
+              Persuasion
+            </label>
+
+            <label className={style.small_field}>
+              <Input className={style.bottom_border_field} />
+              Religion
+            </label>
+
+            <label className={style.small_field}>
+              <Input className={style.bottom_border_field} />
+              Sleight of Hand
+            </label>
+
+            <label className={style.small_field}>
+              <Input className={style.bottom_border_field} />
+              Stealth
+            </label>
+
+            <label className={style.small_field}>
+              <Input className={style.bottom_border_field} />
+              Survival
+            </label>
+            SKILLS
+          </div>
+        </section>
+
+        <section className={style.third_column}>  
+          <div className={style.frames}>
+            <label className={style.frame}>
+              <Input />
+              ARMOR CLASS
+            </label>
+
+            <label className={style.frame}>
+              <Input />
+              INITIATIVE
+            </label>
+
+            <label className={style.frame}>
+              <Input />
+              SPEED
+            </label>
+          </div>
+
+          <div className={style.bordered_section}>
+            <label className="display-flex">
+              Hit Point Maximum
+              <Input className={style.bottom_border_field} />
             </label>
 
             <label>
+              <Input />
+              CURRENT HIT POINTS
+            </label>
+          </div>
+
+          <div className={style.bordered_section}>
+            <label>
+              <Input />
+              TEMPORARY HIT POINTS
+            </label>
+          </div>
+
+          <div className={style.boxes}>
+            <div className={style.bordered_section}>
+              <label className="display-flex">
+                Total
+                <Input className={style.bottom_border_field} />
+              </label>
+
               <Input />
               HIT DICE
-            </label>
+            </div>
+
+            <div className={style.bordered_section}>
+              <div className={style.checkbox_group}>
+                SUCCESSES
+                <Input type='checkbox' />
+                <Input type='checkbox' />
+                <Input type='checkbox' />
+              </div>
+
+              <div className={style.checkbox_group}>
+                FAILURES
+                <Input type='checkbox' />
+                <Input type='checkbox' />
+                <Input type='checkbox' />
+              </div>
+              DEATH SAVES
+            </div>
           </div>
+        </section>
+        
+        <section className={style.fourth_column}>
+          <label>
+            <textarea rows={5} />
+            PERSONALITY TRAITS
+          </label>
 
-          <div className="column">
-            SUCCESSES
-            <Input type='checkbox' />
-            <Input type='checkbox' />
-            <Input type='checkbox' />
+          <label>
+            <textarea rows={5} />
+            IDEALS
+          </label>
 
-            FAILURES
-            <Input type='checkbox' />
-            <Input type='checkbox' />
-            <Input type='checkbox' />
+          <label>
+            <textarea rows={5} />
+            BONDS
+          </label>
 
-            DEATH SAVES
-          </div>
-        </div>
+          <label>
+            <textarea rows={5} />
+            FLAWS
+          </label>
+        </section>
       </div>
-      <div className="column">
-        <label>
-          <textarea />
-          PERSONALITY TRAITS
-        </label>
-
-        <label>
-          <textarea />
-          IDEALS
-        </label>
-
-        <label>
-          <textarea />
-          BONDS
-        </label>
-
-        <label>
-          <textarea />
-          FLAWS
-        </label>
-      </div> */}
+      
     </form>
   );
 }

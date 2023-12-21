@@ -18,7 +18,7 @@ function App() {
         primary
         circle
       >
-        {isDragonsMode ? '←' : '→'}
+        {isDragonsMode ? '🠈' : '🠊'}
       </Button>
       <h1>{isDragonsMode ? 'Dungeons And Dragons' : 'Components Library'}</h1>
       {isDragonsMode 
@@ -29,8 +29,6 @@ function App() {
             {activeTab === 'input' && <InputSection />}
             {activeTab === 'slider' && <SliderSection />}
           </>}
-      
-      <DungeonsAndDragons />
     </div>
   );
 }
