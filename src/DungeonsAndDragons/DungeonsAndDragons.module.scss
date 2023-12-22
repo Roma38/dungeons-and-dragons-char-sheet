@@ -3,6 +3,9 @@ $small-font: 10px;
 
 .form {
   font-size: $small-font;
+  input {
+    width: 100%;
+  }
 }
 
 .top_section {
@@ -11,10 +14,6 @@ $small-font: 10px;
   align-items: center;
   margin-bottom: 20px;
   justify-content: space-between;
-}
-
-input {
-  width: 100%;
 }
 
 .primary_field {
