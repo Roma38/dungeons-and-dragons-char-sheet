@@ -221,6 +221,16 @@ function DungeonsAndDragons() {
             </label>
             SKILLS
           </div>
+
+          <label className={style.large_number_field}>
+            <Input />
+            <span>PASSIVE WISDOM (PERCEPTION)</span>
+          </label>
+
+          <label className={style.column + ' align-center'}>
+            <textarea rows={5} />
+            OTHER PROFICIENCIES & LANGUAGES
+          </label>
         </section>
 
         <section className={style.third_column}>  
@@ -288,6 +298,43 @@ function DungeonsAndDragons() {
               DEATH SAVES
             </div>
           </div>
+
+          <div className={style.bordered_section}>
+            <table border={0}>
+              <thead>
+                <tr>
+                  <th>NAME</th>
+                  <th>ATK BONUS</th>
+                  <th>DAMAGE/TYPE</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><Input /></td>
+                  <td><Input /></td>
+                  <td><Input /></td>
+                </tr>
+
+                <tr>
+                  <td><Input /></td>
+                  <td><Input /></td>
+                  <td><Input /></td>
+                </tr>
+
+                <tr>
+                  <td><Input /></td>
+                  <td><Input /></td>
+                  <td><Input /></td>
+                </tr>
+              </tbody>
+            </table>
+            ATTACKS & SPELLCASTING
+          </div>
+
+          <label className={style.column}>
+            <textarea rows={5} />
+            EQUIPMENT
+          </label>
         </section>
         
         <section className={style.fourth_column}>
@@ -309,6 +356,11 @@ function DungeonsAndDragons() {
           <label>
             <textarea rows={5} />
             FLAWS
+          </label>
+
+          <label>
+            <textarea rows={15} />
+            FEATURES & TRAITS
           </label>
         </section>
       </div>
