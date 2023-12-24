@@ -1,5 +1,9 @@
 import { Input } from '../components';
 import style from "./DungeonsAndDragons.module.scss";
+import inputStyles from "../components/Input/Input.module.scss";
+
+const RACES = ['Dragonborn', 'Dwarf', 'Elf', 'Gnome', 'Half-Elf', 'Halfing', 'Half-Orc', 'Human', 'Tiefling'];
+const ALIGNMENTS = ['Lawful good', 'Neutral good', 'Chaotic good', 'Lawful neutral', 'True neutral', 'Chaotic neutral', 'Lawful evil', 'Neutral evil', 'Chaotic evil'];
 
 
 function DungeonsAndDragons() {
@@ -28,12 +32,18 @@ function DungeonsAndDragons() {
           </label>
 
           <label>
-            <Input />
+            <select className={inputStyles.input}>
+              <option value="" disabled />
+              {RACES.map( race => <option>{race}</option>)}
+            </select>
             RACE
           </label>
 
           <label>
-            <Input />
+            <select className={inputStyles.input}>
+              <option value="" disabled />  
+              {ALIGNMENTS.map(alignment => <option>{alignment}</option>)}
+            </select>
             ALIGNMENT
           </label>
 

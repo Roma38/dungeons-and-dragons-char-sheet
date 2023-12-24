@@ -3,7 +3,7 @@ $small-font: 10px;
 
 .form {
   font-size: $small-font;
-  input {
+  input, select {
     width: 100%;
   }
 }
