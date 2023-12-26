@@ -1,59 +1,21 @@
-import { Input } from '../components';
+import { FormEvent, useReducer } from "react";
+import { Button, Input } from '../components';
+import { TopSection } from './components';
+import { initFormState, formReducer } from "./utils";
 import style from "./DungeonsAndDragons.module.scss";
-import inputStyles from "../components/Input/Input.module.scss";
-
-const RACES = ['Dragonborn', 'Dwarf', 'Elf', 'Gnome', 'Half-Elf', 'Halfing', 'Half-Orc', 'Human', 'Tiefling'];
-const ALIGNMENTS = ['Lawful good', 'Neutral good', 'Chaotic good', 'Lawful neutral', 'True neutral', 'Chaotic neutral', 'Lawful evil', 'Neutral evil', 'Chaotic evil'];
 
 
 function DungeonsAndDragons() {
+  const [state, dispatch] = useReducer(formReducer, initFormState);
+
+  const submitHandler = (event: FormEvent<HTMLFormElement>) => {
+    // 👇️ prevent page refresh
+    event.preventDefault();
+    console.log(state);
+  };
   return (
-    <form className={style.form}>
-      <section className={style.top_section}>
-        <label className={style.primary_field}>
-          <Input />
-          CHARACTER NAME
-        </label>
-
-        <div className={style.top_section_fields}>
-          <label>
-            <Input />
-            CLASS & LEVEL
-          </label>
-
-          <label>
-            <Input />
-            BACKGROUND
-          </label>
-
-          <label>
-            <Input />
-            PLAYER NAME
-          </label>
-
-          <label>
-            <select className={inputStyles.input}>
-              <option value="" disabled />
-              {RACES.map( race => <option>{race}</option>)}
-            </select>
-            RACE
-          </label>
-
-          <label>
-            <select className={inputStyles.input}>
-              <option value="" disabled />  
-              {ALIGNMENTS.map(alignment => <option>{alignment}</option>)}
-            </select>
-            ALIGNMENT
-          </label>
-
-          <label>
-            <Input type='number' />
-            EXPERIENCE POINTS
-          </label>
-        </div>
-      </section>
-
+    <form className={style.form} onSubmit={submitHandler}>
+      <TopSection info={state.info} dispatch={dispatch}  />
       <div className={style.wrapper}>
         <section className={style.first_column}>
           <label className={style.frame}>
@@ -374,7 +336,9 @@ function DungeonsAndDragons() {
           </label>
         </section>
       </div>
-      
+      <div className="align-center">
+        <Button primary>Submit</Button>
+      </div>
     </form>
   );
 }

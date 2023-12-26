@@ -4,8 +4,8 @@ export type TDeathSave = [boolean, boolean, boolean];
 
 export interface IInfo {
   characterName: string;
-  classAndLevel: string;  // is it string or number?
-  background: string;   // is it color? if it so, should I make a color-picker or select with colors options?
+  classAndLevel: string; // is it string or number?
+  background: string; // is it color? if it so, should I make a color-picker or select with colors options?
   playerName: string;
   race: TRace;
   alignment: TAlignment;
@@ -87,4 +87,14 @@ export interface IBackstory {
   equipment: string;
   featuresAndTraits: string;
   otherProficiencies: string;
+}
+
+export interface ICharacterSheet {
+  info: IInfo;
+  abilytyScores: IAbilityScores;
+  stats: IStats;
+  savingThrows: ISavingThrows;
+  skills: ISkills;
+  combat: ICombat;
+  backstory: IBackstory;
 }
