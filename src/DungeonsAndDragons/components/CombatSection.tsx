@@ -1,13 +1,14 @@
 import { ChangeEventHandler } from 'react';
 import { Input } from '../../components';
+import { DeathSaves } from '.';
 import { ICombat, IBackstory } from '../types';
-import { FormActionTypes, CombatFormAction, BackstoryFormAction, TCombatValues } from '../utils';
+import { FormActionTypes, CombatFormAction, BackstoryFormAction, TCombatValues, DeathSavesFormAction } from '../utils';
 import style from "../DungeonsAndDragons.module.scss";
 
 interface IProps {
   combat: ICombat;
   equipment: IBackstory['equipment'];
-  dispatch: React.Dispatch<CombatFormAction | BackstoryFormAction>;
+  dispatch: React.Dispatch<CombatFormAction | BackstoryFormAction | DeathSavesFormAction>;
 }
 
 function CombatSection({ combat, equipment, dispatch }: IProps) {
@@ -70,23 +71,7 @@ function CombatSection({ combat, equipment, dispatch }: IProps) {
           <Input value={combat.hitDice} onChange={changeCombatHandler('hitDice')} />
           HIT DICE
         </div>
-
-        <div className={style.bordered_section}>
-          <div className={style.checkbox_group}>
-            SUCCESSES
-            <Input type='checkbox' />
-            <Input type='checkbox' />
-            <Input type='checkbox' />
-          </div>
-
-          <div className={style.checkbox_group}>
-            FAILURES
-            <Input type='checkbox' />
-            <Input type='checkbox' />
-            <Input type='checkbox' />
-          </div>
-          DEATH SAVES
-        </div>
+        <DeathSaves deathSaves={combat.deathSaves} dispatch={dispatch} />
       </div>
 
       <div className={style.bordered_section}>

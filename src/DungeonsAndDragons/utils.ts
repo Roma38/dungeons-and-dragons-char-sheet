@@ -8,6 +8,7 @@ export enum FormActionTypes {
   ChangeSkill = "ChangeSkill",
   ChangeCombat = "ChangeCombat",
   ChangeBackstory = "ChangeBackstory",
+  ChangeDeathSave = "ChangeDeathSave",
 }
 
 export type TCombatValues = Omit<ICombat, 'deathSaves' | 'attacks'>;
@@ -48,6 +49,12 @@ export interface CombatFormAction {
   value: TCombatValues[keyof TCombatValues];
 }
 
+export interface DeathSavesFormAction {
+  type: FormActionTypes.ChangeDeathSave;
+  key: keyof ICombat['deathSaves'];
+  index: number;
+}
+
 export interface BackstoryFormAction {
   type: FormActionTypes.ChangeBackstory;
   key: keyof IBackstory;
@@ -61,40 +68,46 @@ export type FormActions =
   | SavingThrowFormAction
   | SkillFormAction
   | BackstoryFormAction
-  | CombatFormAction;
+  | CombatFormAction
+  | DeathSavesFormAction;
 
 
 export function formReducer(state: ICharacterSheet, action: FormActions) {
-  const {type, key, value} = action;
+  const {type, key} = action;
   const stateClone = structuredClone(state);
   
   switch (type) {
     case FormActionTypes.ChangeInfo: {
-      stateClone.info[key] = value; //@TODO: resolve
+      stateClone.info[key] = action.value; //@TODO: resolve
       return stateClone;
     }
     case FormActionTypes.ChangeAbility: {
-      stateClone.abilytyScores[key] = value;
+      stateClone.abilytyScores[key] = action.value;
       return stateClone;
     }
     case FormActionTypes.ChangeStats: {
-      stateClone.stats[key] = value;
+      stateClone.stats[key] = action.value;
       return stateClone;
     }
     case FormActionTypes.ChangeSavingThrow: {
-      stateClone.savingThrows[key] = value;
+      stateClone.savingThrows[key] = action.value;
       return stateClone;
     }
     case FormActionTypes.ChangeSkill: {
-      stateClone.skills[key] = value;
+      stateClone.skills[key] = action.value;
       return stateClone;
     }
     case FormActionTypes.ChangeBackstory: {
-      stateClone.backstory[key] = value;
+      stateClone.backstory[key] = action.value;
       return stateClone;
     }
     case FormActionTypes.ChangeCombat: {
-      stateClone.combat[key] = value; //@TODO: resolve
+      stateClone.combat[key] = action.value; //@TODO: resolve
+      return stateClone;
+    }
+    case FormActionTypes.ChangeDeathSave: {
+      stateClone.combat.deathSaves[key][action.index] =
+        !stateClone.combat.deathSaves[key][action.index];
       return stateClone;
     }
     default:

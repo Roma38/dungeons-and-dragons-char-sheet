@@ -3,6 +3,7 @@ import AbilytySection from "./AbilytySection";
 import StatsSection from "./StatsSection";
 import SkillsAndSavingThrowsSection from "./SkillsAndSavingThrowsSection";
 import CombatSection from "./CombatSection";
+import DeathSaves from "./DeathSaves";
 
 export {
   TopSection,
@@ -10,4 +11,5 @@ export {
   StatsSection,
   SkillsAndSavingThrowsSection,
   CombatSection,
+  DeathSaves,
 };
