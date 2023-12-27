@@ -70,7 +70,7 @@ function CombatSection({ combat, equipment, dispatch }: IProps) {
           <Input value={combat.hitDice} onChange={changeCombatHandler('hitDice')} />
           HIT DICE
         </div>
-        
+
         <div className={style.bordered_section}>
           <div className={style.checkbox_group}>
             SUCCESSES
@@ -122,7 +122,7 @@ function CombatSection({ combat, equipment, dispatch }: IProps) {
       </div>
 
       <label className={style.column}>
-        <textarea rows={5} onChange={changeBackstoryHandler('equipment')} />
+        <textarea rows={5} value={equipment} onChange={changeBackstoryHandler('equipment')} />
         EQUIPMENT
       </label>
     </section>
