@@ -1,6 +1,6 @@
 import { FormEvent, useReducer } from "react";
 import { Button, Input } from '../components';
-import { TopSection } from './components';
+import { TopSection, AbilytySection } from './components';
 import { initFormState, formReducer } from "./utils";
 import style from "./DungeonsAndDragons.module.scss";
 
@@ -17,43 +17,7 @@ function DungeonsAndDragons() {
     <form className={style.form} onSubmit={submitHandler}>
       <TopSection info={state.info} dispatch={dispatch}  />
       <div className={style.wrapper}>
-        <section className={style.first_column}>
-          <label className={style.frame}>
-            STRENGTH
-            <Input value={10} disabled/>
-            <Input />
-          </label>
-
-          <label className={style.frame}>
-            DEXTERITY
-            <Input value={10} disabled/>
-            <Input />
-          </label>
-
-          <label className={style.frame}>
-            CONSTITUTION
-            <Input value={10} disabled/>
-            <Input />
-          </label>
-
-          <label className={style.frame}>
-            INTELLIGENCE
-            <Input value={10} disabled/>
-            <Input />
-          </label>
-
-          <label className={style.frame}>
-            WISDOM
-            <Input value={10} disabled/>
-            <Input />
-          </label>
-
-          <label className={style.frame}>
-            CHARISMA
-            <Input value={10} disabled/>
-            <Input />
-          </label>
-        </section>
+        <AbilytySection abilytyScores={state.abilytyScores} dispatch={dispatch} />
 
         <section className={style.second_column}>
           <div>

@@ -1,7 +1,8 @@
-import { ICharacterSheet, IInfo } from "./types";
+import { ICharacterSheet, IInfo, IAbilityScores } from "./types";
 
 export enum FormActionTypes {
   ChangeInfo = "ChangeInfo",
+  ChangeAbility = "ChangeAbility",
 }
 
 export interface InfoFormAction {
@@ -10,16 +11,26 @@ export interface InfoFormAction {
   value: IInfo[keyof IInfo];
 }
 
-export type FormActions = InfoFormAction;
+export interface AbilityFormAction {
+  type: FormActionTypes.ChangeAbility;
+  key: keyof IAbilityScores;
+  value: IAbilityScores[keyof IAbilityScores];
+}
+
+export type FormActions = InfoFormAction | AbilityFormAction;
 
 
 export function formReducer(state: ICharacterSheet, action: FormActions) {
-  const {type, key,value} = action;
+  const {type, key, value} = action;
   const stateClone = structuredClone(state);
   
   switch (type) {
     case FormActionTypes.ChangeInfo: {
       stateClone.info[key] = value; //@TODO: resolve
+      return stateClone;
+    }
+    case FormActionTypes.ChangeAbility: {
+      stateClone.abilytyScores[key] = value;
       return stateClone;
     }
     default:
@@ -37,12 +48,12 @@ export const initFormState: ICharacterSheet = {
     experiencePoints: 0,
   },
   abilytyScores: {
-    strength: 10,
-    dexterity: 10,
-    constitution: 10,
-    intelligence: 10,
-    wisdom: 10,
-    charisma: 10,
+    strength: 0,
+    dexterity: 0,
+    constitution: 0,
+    intelligence: 0,
+    wisdom: 0,
+    charisma: 0,
   },
   stats: {
     inspiration: 0,
