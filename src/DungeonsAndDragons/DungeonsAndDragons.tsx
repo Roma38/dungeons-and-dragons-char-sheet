@@ -12,6 +12,7 @@ function DungeonsAndDragons() {
     // 👇️ prevent page refresh
     event.preventDefault();
     console.log(state);
+    localStorage.setItem('character_sheet', JSON.stringify(state));
   };
   return (
     <form className={style.form} onSubmit={submitHandler}>
