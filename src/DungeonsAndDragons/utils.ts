@@ -1,8 +1,9 @@
-import { ICharacterSheet, IInfo, IAbilityScores } from "./types";
+import { ICharacterSheet, IInfo, IAbilityScores, IStats } from "./types";
 
 export enum FormActionTypes {
   ChangeInfo = "ChangeInfo",
   ChangeAbility = "ChangeAbility",
+  ChangeStats = "ChangeStats",
 }
 
 export interface InfoFormAction {
@@ -17,7 +18,13 @@ export interface AbilityFormAction {
   value: IAbilityScores[keyof IAbilityScores];
 }
 
-export type FormActions = InfoFormAction | AbilityFormAction;
+export interface StatsFormAction {
+  type: FormActionTypes.ChangeStats;
+  key: keyof IStats;
+  value: IStats[keyof IStats];
+}
+
+export type FormActions = InfoFormAction | AbilityFormAction | StatsFormAction;
 
 
 export function formReducer(state: ICharacterSheet, action: FormActions) {
@@ -31,6 +38,10 @@ export function formReducer(state: ICharacterSheet, action: FormActions) {
     }
     case FormActionTypes.ChangeAbility: {
       stateClone.abilytyScores[key] = value;
+      return stateClone;
+    }
+    case FormActionTypes.ChangeStats: {
+      stateClone.stats[key] = value;
       return stateClone;
     }
     default:
