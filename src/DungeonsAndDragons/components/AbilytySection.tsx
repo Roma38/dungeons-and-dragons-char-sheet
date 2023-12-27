@@ -11,7 +11,7 @@ interface IProps {
 
 function AbilytySection({ abilytyScores, dispatch }: IProps) {
   const changeHandler: (key: keyof IAbilityScores) => ChangeEventHandler<HTMLInputElement> = key => e => {
-    const value = Number(e.target.value);
+    const value = Number(e.target.value) + 10;
     dispatch({ type: FormActionTypes.ChangeAbility, key, value })
   }
   const abilityScores = Object.entries(abilytyScores) as [keyof IAbilityScores, IAbilityScores[keyof IAbilityScores]][];
@@ -21,9 +21,9 @@ function AbilytySection({ abilytyScores, dispatch }: IProps) {
       {abilityScores.map(([key, value]) => (
         <label key={key} className={style.frame}>
           {key}
-          <Input value={10 + value} disabled />
+          <Input value={value} disabled />
           {/* @TODO: display + sign */}
-          <Input type="number" value={value} onChange={changeHandler(key)} />
+          <Input type="number" value={value - 10} onChange={changeHandler(key)} />
         </label>
       ))}
     </section>
