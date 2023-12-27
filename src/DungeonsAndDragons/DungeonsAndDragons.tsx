@@ -1,6 +1,6 @@
 import { FormEvent, useReducer } from "react";
 import { Button } from '../components';
-import { TopSection, AbilytySection, StatsSection, SkillsAndSavingThrowsSection, CombatSection } from './components';
+import { TopSection, AbilytySection, StatsSection, SkillsAndSavingThrowsSection, CombatSection, BackstorySection } from './components';
 import { initFormState, formReducer } from "./utils";
 import style from "./DungeonsAndDragons.module.scss";
 
@@ -34,33 +34,7 @@ function DungeonsAndDragons() {
             />
           </div>
         </div>
-
-        <section className={style.fourth_column}>
-          <label>
-            <textarea rows={5} />
-            PERSONALITY TRAITS
-          </label>
-
-          <label>
-            <textarea rows={5} />
-            IDEALS
-          </label>
-
-          <label>
-            <textarea rows={5} />
-            BONDS
-          </label>
-
-          <label>
-            <textarea rows={5} />
-            FLAWS
-          </label>
-
-          <label>
-            <textarea rows={15} />
-            FEATURES & TRAITS
-          </label>
-        </section>
+        <BackstorySection backstory={state.backstory} dispatch={dispatch} />
       </div>
       <div className="align-center">
         <Button primary>Submit</Button>

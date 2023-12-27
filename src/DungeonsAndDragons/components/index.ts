@@ -5,6 +5,7 @@ import SkillsAndSavingThrowsSection from "./SkillsAndSavingThrowsSection";
 import CombatSection from "./CombatSection";
 import DeathSaves from "./DeathSaves";
 import AttacksAndSpellcasting from "./AttacksAndSpellcasting";
+import BackstorySection from "./BackstorySection";
 
 export {
   TopSection,
@@ -14,4 +15,5 @@ export {
   CombatSection,
   DeathSaves,
   AttacksAndSpellcasting,
+  BackstorySection,
 };
