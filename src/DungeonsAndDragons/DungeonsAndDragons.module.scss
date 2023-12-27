@@ -129,6 +129,9 @@ $small-font: 10px;
 .third_column {
   composes: column;
   text-align: center;
+  input {
+    text-align: right;
+  }
 }
 
 .frames {

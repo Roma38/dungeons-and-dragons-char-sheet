@@ -1,6 +1,6 @@
 import { FormEvent, useReducer } from "react";
-import { Button, Input } from '../components';
-import { TopSection, AbilytySection, StatsSection, SkillsAndSavingThrowsSection } from './components';
+import { Button } from '../components';
+import { TopSection, AbilytySection, StatsSection, SkillsAndSavingThrowsSection, CombatSection } from './components';
 import { initFormState, formReducer } from "./utils";
 import style from "./DungeonsAndDragons.module.scss";
 
@@ -27,93 +27,11 @@ function DungeonsAndDragons() {
               otherProficiencies={state.backstory.otherProficiencies}
               dispatch={dispatch}
             />
-
-            <section className={style.third_column}>
-              <div className={style.bordered_section}>
-                <label className="display-flex">
-                  Hit Point Maximum
-                  <Input className={style.bottom_border_field} />
-                </label>
-
-                <label>
-                  <Input />
-                  CURRENT HIT POINTS
-                </label>
-              </div>
-
-              <div className={style.bordered_section}>
-                <label>
-                  <Input />
-                  TEMPORARY HIT POINTS
-                </label>
-              </div>
-
-              <div className={style.boxes}>
-                <div className={style.bordered_section}>
-                  <label className="display-flex">
-                    Total
-                    <Input className={style.bottom_border_field} />
-                  </label>
-
-                  <Input />
-                  HIT DICE
-                </div>
-
-                <div className={style.bordered_section}>
-                  <div className={style.checkbox_group}>
-                    SUCCESSES
-                    <Input type='checkbox' />
-                    <Input type='checkbox' />
-                    <Input type='checkbox' />
-                  </div>
-
-                  <div className={style.checkbox_group}>
-                    FAILURES
-                    <Input type='checkbox' />
-                    <Input type='checkbox' />
-                    <Input type='checkbox' />
-                  </div>
-                  DEATH SAVES
-                </div>
-              </div>
-
-              <div className={style.bordered_section}>
-                <table border={0}>
-                  <thead>
-                    <tr>
-                      <th>NAME</th>
-                      <th>ATK BONUS</th>
-                      <th>DAMAGE/TYPE</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td><Input /></td>
-                      <td><Input /></td>
-                      <td><Input /></td>
-                    </tr>
-
-                    <tr>
-                      <td><Input /></td>
-                      <td><Input /></td>
-                      <td><Input /></td>
-                    </tr>
-
-                    <tr>
-                      <td><Input /></td>
-                      <td><Input /></td>
-                      <td><Input /></td>
-                    </tr>
-                  </tbody>
-                </table>
-                ATTACKS & SPELLCASTING
-              </div>
-
-              <label className={style.column}>
-                <textarea rows={5} />
-                EQUIPMENT
-              </label>
-            </section>
+            <CombatSection 
+              combat={state.combat} 
+              equipment={state.backstory.equipment} 
+              dispatch={dispatch}  
+            />
           </div>
         </div>
 

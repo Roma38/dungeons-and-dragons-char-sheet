@@ -1,4 +1,4 @@
-import { ICharacterSheet, IInfo, IAbilityScores, IStats, ISavingThrows, ISkills, IBackstory } from "./types";
+import { ICharacterSheet, IInfo, IAbilityScores, IStats, ISavingThrows, ISkills, IBackstory, ICombat } from "./types";
 
 export enum FormActionTypes {
   ChangeInfo = "ChangeInfo",
@@ -6,8 +6,11 @@ export enum FormActionTypes {
   ChangeStats = "ChangeStats",
   ChangeSavingThrow = "ChangeSavingThrow",
   ChangeSkill = "ChangeSkill",
+  ChangeCombat = "ChangeCombat",
   ChangeBackstory = "ChangeBackstory",
 }
+
+export type TCombatValues = Omit<ICombat, 'deathSaves' | 'attacks'>;
 
 export interface InfoFormAction {
   type: FormActionTypes.ChangeInfo;
@@ -39,6 +42,12 @@ export interface SkillFormAction {
   value: ISkills[keyof ISkills];
 }
 
+export interface CombatFormAction {
+  type: FormActionTypes.ChangeCombat;
+  key: keyof TCombatValues;
+  value: TCombatValues[keyof TCombatValues];
+}
+
 export interface BackstoryFormAction {
   type: FormActionTypes.ChangeBackstory;
   key: keyof IBackstory;
@@ -51,7 +60,8 @@ export type FormActions =
   | StatsFormAction
   | SavingThrowFormAction
   | SkillFormAction
-  | BackstoryFormAction;
+  | BackstoryFormAction
+  | CombatFormAction;
 
 
 export function formReducer(state: ICharacterSheet, action: FormActions) {
@@ -81,6 +91,10 @@ export function formReducer(state: ICharacterSheet, action: FormActions) {
     }
     case FormActionTypes.ChangeBackstory: {
       stateClone.backstory[key] = value;
+      return stateClone;
+    }
+    case FormActionTypes.ChangeCombat: {
+      stateClone.combat[key] = value; //@TODO: resolve
       return stateClone;
     }
     default:
