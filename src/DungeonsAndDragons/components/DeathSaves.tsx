@@ -1,4 +1,3 @@
-
 import { ChangeEventHandler } from 'react';
 import { Input } from '../../components';
 import { ICombat } from '../types';
@@ -16,7 +15,7 @@ function DeathSaves({ deathSaves, dispatch }: IProps) {
   }
 
   return (
-    < div className = { style.bordered_section } >
+    <div className={ style.bordered_section }>
       <div className={style.checkbox_group}>
         SUCCESSES
         {deathSaves.successes.map((isChecked, index) => (

@@ -1,14 +1,14 @@
 import { ChangeEventHandler } from 'react';
 import { Input } from '../../components';
-import { DeathSaves } from '.';
+import { DeathSaves, AttacksAndSpellcasting } from '.';
 import { ICombat, IBackstory } from '../types';
-import { FormActionTypes, CombatFormAction, BackstoryFormAction, TCombatValues, DeathSavesFormAction } from '../utils';
+import { FormActionTypes, CombatFormAction, BackstoryFormAction, TCombatValues, DeathSavesFormAction, AttackFormAction } from '../utils';
 import style from "../DungeonsAndDragons.module.scss";
 
 interface IProps {
   combat: ICombat;
   equipment: IBackstory['equipment'];
-  dispatch: React.Dispatch<CombatFormAction | BackstoryFormAction | DeathSavesFormAction>;
+  dispatch: React.Dispatch<CombatFormAction | BackstoryFormAction | DeathSavesFormAction | AttackFormAction>;
 }
 
 function CombatSection({ combat, equipment, dispatch }: IProps) {
@@ -73,38 +73,7 @@ function CombatSection({ combat, equipment, dispatch }: IProps) {
         </div>
         <DeathSaves deathSaves={combat.deathSaves} dispatch={dispatch} />
       </div>
-
-      <div className={style.bordered_section}>
-        <table border={0}>
-          <thead>
-            <tr>
-              <th>NAME</th>
-              <th>ATK BONUS</th>
-              <th>DAMAGE/TYPE</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><Input /></td>
-              <td><Input /></td>
-              <td><Input /></td>
-            </tr>
-
-            <tr>
-              <td><Input /></td>
-              <td><Input /></td>
-              <td><Input /></td>
-            </tr>
-
-            <tr>
-              <td><Input /></td>
-              <td><Input /></td>
-              <td><Input /></td>
-            </tr>
-          </tbody>
-        </table>
-        ATTACKS & SPELLCASTING
-      </div>
+      <AttacksAndSpellcasting attacks={combat.attacks} dispatch={dispatch} />
 
       <label className={style.column}>
         <textarea rows={5} value={equipment} onChange={changeBackstoryHandler('equipment')} />
