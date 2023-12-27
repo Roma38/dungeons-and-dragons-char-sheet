@@ -1,6 +1,6 @@
 import { FormEvent, useReducer } from "react";
 import { Button, Input } from '../components';
-import { TopSection, AbilytySection, StatsSection } from './components';
+import { TopSection, AbilytySection, StatsSection, SkillsAndSavingThrowsSection } from './components';
 import { initFormState, formReducer } from "./utils";
 import style from "./DungeonsAndDragons.module.scss";
 
@@ -20,145 +20,13 @@ function DungeonsAndDragons() {
         <AbilytySection abilytyScores={state.abilytyScores} dispatch={dispatch} />
         <div className={style.column}>
           <StatsSection stats={state.stats} dispatch={dispatch} />
-
           <div className={style.wrapper}>
-            <section className={style.second_column}>
-              <div className={style.small_fields_group}>
-                <label className={style.small_field}>
-                  <Input className={style.bottom_border_field} />
-                  Strength
-                </label>
-
-                <label className={style.small_field}>
-                  <Input className={style.bottom_border_field} />
-                  Dexterity
-                </label>
-
-                <label className={style.small_field}>
-                  <Input className={style.bottom_border_field} />
-                  Constitution
-                </label>
-
-                <label className={style.small_field}>
-                  <Input className={style.bottom_border_field} />
-                  Intelligence
-                </label>
-
-                <label className={style.small_field}>
-                  <Input className={style.bottom_border_field} />
-                  Wisdom
-                </label>
-
-                <label className={style.small_field}>
-                  <Input className={style.bottom_border_field} />
-                  Charisma
-                </label>
-                SAVING THROWS
-              </div>
-
-              <div className={style.small_fields_group}>
-                <label className={style.small_field}>
-                  <Input className={style.bottom_border_field} />
-                  Acrobatics
-                </label>
-
-                <label className={style.small_field}>
-                  <Input className={style.bottom_border_field} />
-                  Animal Handling
-                </label>
-
-                <label className={style.small_field}>
-                  <Input className={style.bottom_border_field} />
-                  Arcana
-                </label>
-
-                <label className={style.small_field}>
-                  <Input className={style.bottom_border_field} />
-                  Athletics
-                </label>
-
-                <label className={style.small_field}>
-                  <Input className={style.bottom_border_field} />
-                  Deception
-                </label>
-
-                <label className={style.small_field}>
-                  <Input className={style.bottom_border_field} />
-                  History
-                </label>
-
-                <label className={style.small_field}>
-                  <Input className={style.bottom_border_field} />
-                  Insight
-                </label>
-
-                <label className={style.small_field}>
-                  <Input className={style.bottom_border_field} />
-                  Intimidation
-                </label>
-
-                <label className={style.small_field}>
-                  <Input className={style.bottom_border_field} />
-                  Investigation
-                </label>
-
-                <label className={style.small_field}>
-                  <Input className={style.bottom_border_field} />
-                  Medicine
-                </label>
-
-                <label className={style.small_field}>
-                  <Input className={style.bottom_border_field} />
-                  Nature
-                </label>
-
-                <label className={style.small_field}>
-                  <Input className={style.bottom_border_field} />
-                  Perception
-                </label>
-
-                <label className={style.small_field}>
-                  <Input className={style.bottom_border_field} />
-                  Performance
-                </label>
-
-                <label className={style.small_field}>
-                  <Input className={style.bottom_border_field} />
-                  Persuasion
-                </label>
-
-                <label className={style.small_field}>
-                  <Input className={style.bottom_border_field} />
-                  Religion
-                </label>
-
-                <label className={style.small_field}>
-                  <Input className={style.bottom_border_field} />
-                  Sleight of Hand
-                </label>
-
-                <label className={style.small_field}>
-                  <Input className={style.bottom_border_field} />
-                  Stealth
-                </label>
-
-                <label className={style.small_field}>
-                  <Input className={style.bottom_border_field} />
-                  Survival
-                </label>
-                SKILLS
-              </div>
-
-              <label className={style.large_number_field}>
-                <Input />
-                <span>PASSIVE WISDOM (PERCEPTION)</span>
-              </label>
-
-              <label className={style.column + ' align-center'}>
-                <textarea rows={5} />
-                OTHER PROFICIENCIES & LANGUAGES
-              </label>
-            </section>
+            <SkillsAndSavingThrowsSection 
+              skills={state.skills} 
+              savingThrows={state.savingThrows} 
+              otherProficiencies={state.backstory.otherProficiencies}
+              dispatch={dispatch}
+            />
 
             <section className={style.third_column}>
               <div className={style.bordered_section}>

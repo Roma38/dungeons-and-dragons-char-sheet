@@ -1,9 +1,12 @@
-import { ICharacterSheet, IInfo, IAbilityScores, IStats } from "./types";
+import { ICharacterSheet, IInfo, IAbilityScores, IStats, ISavingThrows, ISkills, IBackstory } from "./types";
 
 export enum FormActionTypes {
   ChangeInfo = "ChangeInfo",
   ChangeAbility = "ChangeAbility",
   ChangeStats = "ChangeStats",
+  ChangeSavingThrow = "ChangeSavingThrow",
+  ChangeSkill = "ChangeSkill",
+  ChangeBackstory = "ChangeBackstory",
 }
 
 export interface InfoFormAction {
@@ -24,7 +27,31 @@ export interface StatsFormAction {
   value: IStats[keyof IStats];
 }
 
-export type FormActions = InfoFormAction | AbilityFormAction | StatsFormAction;
+export interface SavingThrowFormAction {
+  type: FormActionTypes.ChangeSavingThrow;
+  key: keyof ISavingThrows;
+  value: ISavingThrows[keyof ISavingThrows];
+}
+
+export interface SkillFormAction {
+  type: FormActionTypes.ChangeSkill;
+  key: keyof ISkills;
+  value: ISkills[keyof ISkills];
+}
+
+export interface BackstoryFormAction {
+  type: FormActionTypes.ChangeBackstory;
+  key: keyof IBackstory;
+  value: IBackstory[keyof IBackstory];
+}
+
+export type FormActions =
+  | InfoFormAction
+  | AbilityFormAction
+  | StatsFormAction
+  | SavingThrowFormAction
+  | SkillFormAction
+  | BackstoryFormAction;
 
 
 export function formReducer(state: ICharacterSheet, action: FormActions) {
@@ -44,10 +71,23 @@ export function formReducer(state: ICharacterSheet, action: FormActions) {
       stateClone.stats[key] = value;
       return stateClone;
     }
+    case FormActionTypes.ChangeSavingThrow: {
+      stateClone.savingThrows[key] = value;
+      return stateClone;
+    }
+    case FormActionTypes.ChangeSkill: {
+      stateClone.skills[key] = value;
+      return stateClone;
+    }
+    case FormActionTypes.ChangeBackstory: {
+      stateClone.backstory[key] = value;
+      return stateClone;
+    }
     default:
       return state;
   }
 }
+
 export const initFormState: ICharacterSheet = {
   info: {
     characterName: "",
