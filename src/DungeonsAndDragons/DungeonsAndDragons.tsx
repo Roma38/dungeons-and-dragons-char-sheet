@@ -14,6 +14,7 @@ function DungeonsAndDragons() {
     console.log(state);
     localStorage.setItem('character_sheet', JSON.stringify(state));
   };
+  
   return (
     <form className={style.form} onSubmit={submitHandler}>
       <TopSection info={state.info} dispatch={dispatch} />

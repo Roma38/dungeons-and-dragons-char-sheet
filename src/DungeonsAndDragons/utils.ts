@@ -86,7 +86,12 @@ export function formReducer(state: ICharacterSheet, action: FormActions) {
   
   switch (type) {
     case FormActionTypes.ChangeInfo: {
-      stateClone.info[key] = action.value; //@TODO: resolve
+      if (key === 'experiencePoints') {
+        stateClone.info.experiencePoints = Number(action.value);
+        stateClone.info.level = getLevel(Number(action.value));
+      } else {
+        stateClone.info[key] = action.value; //@TODO: resolve
+      }
       return stateClone;
     }
     case FormActionTypes.ChangeAbility: {
@@ -223,3 +228,48 @@ export const initFormState: ICharacterSheet = character_sheet
         otherProficiencies: "",
       },
     };
+
+    function getLevel(exp: IInfo['experiencePoints']): IInfo['level'] {
+      switch (true) {
+        case exp < 300:
+          return 1;
+        case exp < 900:
+          return 2;
+        case exp < 2700:
+          return 3;
+        case exp < 6500:
+          return 4;
+        case exp < 14000:
+          return 5;
+        case exp < 23000:
+          return 6;
+        case exp < 34000:
+          return 7;
+        case exp < 48000:
+          return 8;
+        case exp < 64000:
+          return 9;
+        case exp < 85000:
+          return 10;
+        case exp < 100000:
+          return 11;
+        case exp < 120000:
+          return 12;
+        case exp < 140000:
+          return 13;
+        case exp < 165000:
+          return 14;
+        case exp < 195000:
+          return 15;
+        case exp < 225000:
+          return 16;
+        case exp < 265000:
+          return 17;
+        case exp < 305000:
+          return 18;
+        case exp < 355000:
+          return 19;
+        default:
+          return 20;
+      }
+    }
