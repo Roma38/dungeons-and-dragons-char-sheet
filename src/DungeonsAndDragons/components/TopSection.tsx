@@ -66,7 +66,12 @@ function TopSection({ info, dispatch }: IProps) {
         </label>
 
         <label>
-          <Input type='number' value={info.experiencePoints} onChange={changeHandler('experiencePoints')} />
+          <Input 
+            type='number' 
+            value={info.experiencePoints} 
+            onChange={changeHandler('experiencePoints')} 
+            min={0} 
+          />
           EXPERIENCE POINTS
         </label>
       </div>

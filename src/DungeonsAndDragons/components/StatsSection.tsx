@@ -31,17 +31,32 @@ function StatsSection({ stats, dispatch }: IProps) {
 
       <div className={style.frames}>
         <label className={style.frame}>
-          <Input type="number" value={stats.armorClass} onChange={changeHandler('armorClass')} />
+          <Input 
+            type="number" 
+            value={stats.armorClass} 
+            onChange={changeHandler('armorClass')} 
+            min={0}
+          />
           ARMOR CLASS
         </label>
 
         <label className={style.frame}>
-          <Input type="number" value={stats.initiative} onChange={changeHandler('initiative')} />
+          <Input 
+            type="number" 
+            value={stats.initiative} 
+            onChange={changeHandler('initiative')} 
+            min={0}
+          />
           INITIATIVE
         </label>
 
         <label className={style.frame}>
-          <Input type="number" value={stats.speed} onChange={changeHandler('speed')} />
+          <Input
+            type="number"
+            value={stats.speed}
+            onChange={changeHandler('speed')}
+            min={0}
+          />
           SPEED
         </label>
       </div>

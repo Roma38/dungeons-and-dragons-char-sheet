@@ -32,6 +32,7 @@ function CombatSection({ combat, equipment, dispatch }: IProps) {
             type="number"
             value={combat.hitPointMaximum}
             onChange={changeCombatHandler('hitPointMaximum')}
+            min={0}
           />
         </label>
 
@@ -40,6 +41,7 @@ function CombatSection({ combat, equipment, dispatch }: IProps) {
             type="number" 
             value={combat.currentHitPoints} 
             onChange={changeCombatHandler('currentHitPoints')} 
+            min={0}
           />
           CURRENT HIT POINTS
         </label>
@@ -50,7 +52,8 @@ function CombatSection({ combat, equipment, dispatch }: IProps) {
           <Input 
             type="number" 
             value={combat.temporaryHitPoints} 
-            onChange={changeCombatHandler('temporaryHitPoints')} 
+            onChange={changeCombatHandler('temporaryHitPoints')}
+            min={0}
           />
           TEMPORARY HIT POINTS
         </label>
@@ -65,6 +68,7 @@ function CombatSection({ combat, equipment, dispatch }: IProps) {
               type="number"
               value={combat.total}
               onChange={changeCombatHandler('total')}
+              min={0}
             />
           </label>
 
