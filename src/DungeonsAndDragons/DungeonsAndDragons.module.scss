@@ -30,6 +30,14 @@ $small-font: 10px;
   }
 }
 
+.select_group {
+  display: flex;
+  gap: 10px;
+  input {
+    flex-shrink: 2.5;
+  }
+}
+
 .column {
   display: flex;
   flex-direction: column;

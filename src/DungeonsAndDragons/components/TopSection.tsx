@@ -1,6 +1,6 @@
 import { ChangeEventHandler } from 'react';
 import { Input } from '../../components';
-import { IInfo, TAlignment, TRace } from '../types';
+import { IInfo, TAlignment, TClass, TRace } from '../types';
 import { FormActionTypes, InfoFormAction } from '../utils';
 import style from "../DungeonsAndDragons.module.scss";
 import inputStyles from "../../components/Input/Input.module.scss";
@@ -8,6 +8,7 @@ import inputStyles from "../../components/Input/Input.module.scss";
 
 const RACES: TRace[] = ['Dragonborn', 'Dwarf', 'Elf', 'Gnome', 'Half-Elf', 'Halfing', 'Half-Orc', 'Human', 'Tiefling'];
 const ALIGNMENTS: TAlignment[] = ['Lawful good', 'Neutral good', 'Chaotic good', 'Lawful neutral', 'True neutral', 'Chaotic neutral', 'Lawful evil', 'Neutral evil', 'Chaotic evil'];
+const CLASSES: TClass[] = ['Barbarian', 'Bard', 'Cleric', 'Druid', 'Fighter', 'Monk', 'Paladin', 'Ranger', 'Rogue', 'Sorcerer', 'Warlock', 'Wizard'];
 
 interface IProps {
   info: IInfo;
@@ -29,7 +30,16 @@ function TopSection({ info, dispatch }: IProps) {
 
       <div className={style.top_section_fields}>
         <label>
-          <Input value={info.classAndLevel} onChange={changeHandler('classAndLevel')} />
+          <div className={style.select_group}>
+            <select
+              className={inputStyles.input + ' ' + inputStyles.medium}
+              value={info.class}
+              onChange={changeHandler('class')}
+            >
+              {CLASSES.map(item => <option key={item}>{item}</option>)}
+            </select>
+            <Input value={info.level} disabled />
+          </div>
           CLASS & LEVEL
         </label>
 

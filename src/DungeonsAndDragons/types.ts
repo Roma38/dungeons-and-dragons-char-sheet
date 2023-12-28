@@ -1,11 +1,13 @@
 export type TRace = 'Dragonborn' | 'Dwarf' | 'Elf' | 'Gnome' | 'Half-Elf' | 'Halfing' | 'Half-Orc' | 'Human' | 'Tiefling';
 export type TAlignment = 'Lawful good' | 'Neutral good' | 'Chaotic good' | 'Lawful neutral' | 'True neutral' | 'Chaotic neutral' | 'Lawful evil' | 'Neutral evil' | 'Chaotic evil';
+export type TClass = 'Barbarian' | 'Bard' | 'Cleric' | 'Druid' | 'Fighter' | 'Monk' | 'Paladin' | 'Ranger' | 'Rogue' | 'Sorcerer' | 'Warlock' | 'Wizard';
 export type TDeathSave = [boolean, boolean, boolean];
 
 export interface IInfo {
   characterName: string;
-  classAndLevel: string; // is it string or number?
-  background: string; // is it color? if it so, should I make a color-picker or select with colors options?
+  class: TClass;
+  level: number;
+  background: string;
   playerName: string;
   race: TRace;
   alignment: TAlignment;
@@ -71,7 +73,7 @@ export interface ICombat {
   currentHitPoints: number;
   temporaryHitPoints: number;
   total: number;
-  hitDice: string;  // is it just a string?
+  hitDice: string;
   deathSaves: {
     successes: TDeathSave;
     failures: TDeathSave;

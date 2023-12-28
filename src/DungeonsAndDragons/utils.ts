@@ -80,7 +80,6 @@ export type FormActions =
   | DeathSavesFormAction
   | AttackFormAction;
 
-
 export function formReducer(state: ICharacterSheet, action: FormActions) {
   const {type, key} = action;
   const stateClone = structuredClone(state);
@@ -134,7 +133,8 @@ export const initFormState: ICharacterSheet = character_sheet
   : {
       info: {
         characterName: "",
-        classAndLevel: "",
+        class: "Barbarian",
+        level: 0,
         background: "",
         playerName: "",
         race: "Dragonborn",
