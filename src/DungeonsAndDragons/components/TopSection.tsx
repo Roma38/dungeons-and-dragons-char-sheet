@@ -5,7 +5,6 @@ import { FormActionTypes, InfoFormAction } from '../utils';
 import style from "../DungeonsAndDragons.module.scss";
 import inputStyles from "../../components/Input/Input.module.scss";
 
-
 const RACES: TRace[] = ['Dragonborn', 'Dwarf', 'Elf', 'Gnome', 'Half-Elf', 'Halfing', 'Half-Orc', 'Human', 'Tiefling'];
 const ALIGNMENTS: TAlignment[] = ['Lawful good', 'Neutral good', 'Chaotic good', 'Lawful neutral', 'True neutral', 'Chaotic neutral', 'Lawful evil', 'Neutral evil', 'Chaotic evil'];
 const CLASSES: TClass[] = ['Barbarian', 'Bard', 'Cleric', 'Druid', 'Fighter', 'Monk', 'Paladin', 'Ranger', 'Rogue', 'Sorcerer', 'Warlock', 'Wizard'];

@@ -16,7 +16,7 @@ function DungeonsAndDragons() {
   };
   return (
     <form className={style.form} onSubmit={submitHandler}>
-      <TopSection info={state.info} dispatch={dispatch}  />
+      <TopSection info={state.info} dispatch={dispatch} />
       <div className={style.wrapper}>
         <AbilytySection abilytyScores={state.abilytyScores} dispatch={dispatch} />
         <div className={style.column}>

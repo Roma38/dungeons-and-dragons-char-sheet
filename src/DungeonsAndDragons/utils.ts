@@ -134,7 +134,7 @@ export const initFormState: ICharacterSheet = character_sheet
       info: {
         characterName: "",
         class: "Barbarian",
-        level: 0,
+        level: 1,
         background: "",
         playerName: "",
         race: "Dragonborn",
