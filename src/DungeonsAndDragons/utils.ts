@@ -10,9 +10,10 @@ export enum FormActionTypes {
   ChangeBackstory = "ChangeBackstory",
   ChangeDeathSave = "ChangeDeathSave",
   ChangeAttack = "ChangeAttack",
+  ChangeHitDice = "ChangeHitDice",
 }
 
-export type TCombatValues = Omit<ICombat, 'deathSaves' | 'attacks'>;
+export type TCombatValues = Omit<ICombat, 'deathSaves' | 'attacks' | 'hitDice'>;
 
 export interface InfoFormAction {
   type: FormActionTypes.ChangeInfo;
@@ -63,6 +64,12 @@ export interface AttackFormAction {
   value: IAttack[keyof IAttack];
 }
 
+export interface HitDiceFormAction {
+  type: FormActionTypes.ChangeHitDice;
+  index: number;
+  value: ICombat['hitDice'][number];
+}
+
 export interface BackstoryFormAction {
   type: FormActionTypes.ChangeBackstory;
   key: keyof IBackstory;
@@ -78,53 +85,57 @@ export type FormActions =
   | BackstoryFormAction
   | CombatFormAction
   | DeathSavesFormAction
-  | AttackFormAction;
+  | AttackFormAction
+  | HitDiceFormAction;
 
 export function formReducer(state: ICharacterSheet, action: FormActions) {
-  const {type, key} = action;
   const stateClone = structuredClone(state);
   
-  switch (type) {
+  switch (action.type) {
     case FormActionTypes.ChangeInfo: {
-      if (key === 'experiencePoints') {
+      if (action.key === "experiencePoints") {
         stateClone.info.experiencePoints = Number(action.value);
         stateClone.info.level = getLevel(Number(action.value));
       } else {
-        stateClone.info[key] = action.value; //@TODO: resolve
+        stateClone.info[action.key] = action.value; //@TODO: resolve
       }
       return stateClone;
     }
     case FormActionTypes.ChangeAbility: {
-      stateClone.abilytyScores[key] = action.value;
+      stateClone.abilytyScores[action.key] = action.value;
       return stateClone;
     }
     case FormActionTypes.ChangeStats: {
-      stateClone.stats[key] = action.value;
+      stateClone.stats[action.key] = action.value;
       return stateClone;
     }
     case FormActionTypes.ChangeSavingThrow: {
-      stateClone.savingThrows[key] = action.value;
+      stateClone.savingThrows[action.key] = action.value;
       return stateClone;
     }
     case FormActionTypes.ChangeSkill: {
-      stateClone.skills[key] = action.value;
+      stateClone.skills[action.key] = action.value;
       return stateClone;
     }
     case FormActionTypes.ChangeBackstory: {
-      stateClone.backstory[key] = action.value;
+      stateClone.backstory[action.key] = action.value;
       return stateClone;
     }
     case FormActionTypes.ChangeCombat: {
-      stateClone.combat[key] = action.value; //@TODO: resolve
+      stateClone.combat[action.key] = action.value; //@TODO: resolve
       return stateClone;
     }
     case FormActionTypes.ChangeDeathSave: {
-      stateClone.combat.deathSaves[key][action.index] =
-        !stateClone.combat.deathSaves[key][action.index];
+      stateClone.combat.deathSaves[action.key][action.index] =
+        !stateClone.combat.deathSaves[action.key][action.index];
       return stateClone;
     }
     case FormActionTypes.ChangeAttack: {
-      stateClone.combat.attacks[action.index][key] = action.value;
+      stateClone.combat.attacks[action.index][action.key] = action.value;
+      return stateClone;
+    }
+    case FormActionTypes.ChangeHitDice: {
+      stateClone.combat.hitDice[action.index] = action.value;
       return stateClone;
     }
     default:
@@ -195,7 +206,7 @@ export const initFormState: ICharacterSheet = character_sheet
         currentHitPoints: 0,
         temporaryHitPoints: 0,
         total: 0,
-        hitDice: "",
+        hitDice: [1, 4, 0],
         deathSaves: {
           successes: [false, false, false],
           failures: [false, false, false],

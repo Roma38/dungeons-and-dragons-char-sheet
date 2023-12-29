@@ -160,3 +160,21 @@ $small-font: 10px;
   text-align: center;
   gap: 10px;
 }
+
+.inputs_group {
+  display: flex;
+  border-bottom: 1px solid;
+  input, select {
+    border: none !important;
+    padding: 0!important;
+    box-shadow: none !important;
+  }
+  select {
+    /* for Firefox */
+    -moz-appearance: none;
+    /* for Chrome */
+    -webkit-appearance: none;
+    appearance: none;
+    padding-right: 15px;
+  }
+}
