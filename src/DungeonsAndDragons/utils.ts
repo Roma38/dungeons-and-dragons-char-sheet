@@ -95,7 +95,9 @@ export function formReducer(state: ICharacterSheet, action: FormActions) {
     case FormActionTypes.ChangeInfo: {
       if (action.key === "experiencePoints") {
         stateClone.info.experiencePoints = Number(action.value);
-        stateClone.info.level = getLevel(Number(action.value));
+        const {level, proficiencyBonus} = getLevelAndProficiencyBonus(Number(action.value));
+        stateClone.info.level = level;
+        stateClone.stats.proficiencyBonus = proficiencyBonus;
       } else {
         stateClone.info[action.key] = action.value; //@TODO: resolve
       }
@@ -167,7 +169,7 @@ export const initFormState: ICharacterSheet = character_sheet
       },
       stats: {
         inspiration: 0,
-        proficiencyBonus: 0,
+        proficiencyBonus: 2,
         armorClass: 0,
         initiative: 0,
         speed: 0,
@@ -240,47 +242,47 @@ export const initFormState: ICharacterSheet = character_sheet
       },
     };
 
-    function getLevel(exp: IInfo['experiencePoints']): IInfo['level'] {
+    function getLevelAndProficiencyBonus(exp: IInfo['experiencePoints']): { level: IInfo['level'], proficiencyBonus: IStats['proficiencyBonus']} {
       switch (true) {
         case exp < 300:
-          return 1;
+          return {level: 1, proficiencyBonus: 2};
         case exp < 900:
-          return 2;
+          return {level: 2, proficiencyBonus: 2};
         case exp < 2700:
-          return 3;
+          return { level: 3, proficiencyBonus: 2 };
         case exp < 6500:
-          return 4;
+          return { level: 4, proficiencyBonus: 2 };
         case exp < 14000:
-          return 5;
+          return { level: 5, proficiencyBonus: 3 };
         case exp < 23000:
-          return 6;
+          return { level: 6, proficiencyBonus: 3 };
         case exp < 34000:
-          return 7;
+          return { level: 7, proficiencyBonus: 3 };
         case exp < 48000:
-          return 8;
+          return { level: 8, proficiencyBonus: 3 };
         case exp < 64000:
-          return 9;
+          return { level: 9, proficiencyBonus: 4 };
         case exp < 85000:
-          return 10;
+          return { level: 10, proficiencyBonus: 4 };
         case exp < 100000:
-          return 11;
+          return { level: 11, proficiencyBonus: 4 };
         case exp < 120000:
-          return 12;
+          return { level: 12, proficiencyBonus: 4 };
         case exp < 140000:
-          return 13;
+          return { level: 13, proficiencyBonus: 5 };
         case exp < 165000:
-          return 14;
+          return { level: 14, proficiencyBonus: 5 };
         case exp < 195000:
-          return 15;
+          return { level: 15, proficiencyBonus: 5 };
         case exp < 225000:
-          return 16;
+          return { level: 16, proficiencyBonus: 5 };
         case exp < 265000:
-          return 17;
+          return { level: 17, proficiencyBonus: 6 };
         case exp < 305000:
-          return 18;
+          return { level: 18, proficiencyBonus: 6 };
         case exp < 355000:
-          return 19;
+          return { level: 19, proficiencyBonus: 6 };
         default:
-          return 20;
+          return { level: 20, proficiencyBonus: 6 };
       }
     }

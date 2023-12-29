@@ -24,7 +24,7 @@ function StatsSection({ stats, dispatch }: IProps) {
         </label>
 
         <label className={style.large_number_field}>
-          <Input type="number" value={stats.proficiencyBonus} onChange={changeHandler('proficiencyBonus')} />
+          <Input value={`+${stats.proficiencyBonus}`} disabled />
           <span>PROFICIENCY BONUS</span>
         </label>
       </div>
