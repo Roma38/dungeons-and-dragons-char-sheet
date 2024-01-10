@@ -28,11 +28,17 @@ function AttacksAndSpellcasting({ attacks, dispatch }: IProps) {
         <tbody>
           {attacks.map((attack, index) => (
             <tr key={index}>
-              {Object.entries(attack).map(([key, value]) => 
-                <td key={key}>
-                  <Input value={value} onChange={changeHandler(key as keyof IAttack, index)} />
-                </td>
-              )}
+              <td>
+                <Input value={attack.name} onChange={changeHandler('name', index)} />
+              </td>
+
+              <td>
+                <Input value={attack.atkBonus} onChange={changeHandler('atkBonus', index)} pattern='(\d+)?d(\d+)([\+\-]\d+)?' />
+              </td>
+              
+              <td>
+                <Input value={attack.damageOrType} onChange={changeHandler('damageOrType', index)} />
+              </td>
             </tr>
           ))}
         </tbody>

@@ -21,4 +21,8 @@
       font-size: 16px;
     }
   }
+
+  &:invalid {
+    border-color: red;
+  }
 }

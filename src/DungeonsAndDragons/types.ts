@@ -1,7 +1,6 @@
 export type TRace = 'Dragonborn' | 'Dwarf' | 'Elf' | 'Gnome' | 'Half-Elf' | 'Halfing' | 'Half-Orc' | 'Human' | 'Tiefling';
 export type TAlignment = 'Lawful good' | 'Neutral good' | 'Chaotic good' | 'Lawful neutral' | 'True neutral' | 'Chaotic neutral' | 'Lawful evil' | 'Neutral evil' | 'Chaotic evil';
 export type TClass = 'Barbarian' | 'Bard' | 'Cleric' | 'Druid' | 'Fighter' | 'Monk' | 'Paladin' | 'Ranger' | 'Rogue' | 'Sorcerer' | 'Warlock' | 'Wizard';
-export type TDice = 4 | 6 | 8 | 10 | 12 | 20;
 export type TDeathSave = [boolean, boolean, boolean];
 
 export interface IInfo {
@@ -74,7 +73,7 @@ export interface ICombat {
   currentHitPoints: number;
   temporaryHitPoints: number;
   total: number;
-  hitDice: [number, TDice, number];
+  hitDice: string;
   deathSaves: {
     successes: TDeathSave;
     failures: TDeathSave;

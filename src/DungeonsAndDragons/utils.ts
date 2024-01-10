@@ -10,10 +10,9 @@ export enum FormActionTypes {
   ChangeBackstory = "ChangeBackstory",
   ChangeDeathSave = "ChangeDeathSave",
   ChangeAttack = "ChangeAttack",
-  ChangeHitDice = "ChangeHitDice",
 }
 
-export type TCombatValues = Omit<ICombat, 'deathSaves' | 'attacks' | 'hitDice'>;
+export type TCombatValues = Omit<ICombat, 'deathSaves' | 'attacks'>;
 
 export interface InfoFormAction {
   type: FormActionTypes.ChangeInfo;
@@ -64,12 +63,6 @@ export interface AttackFormAction {
   value: IAttack[keyof IAttack];
 }
 
-export interface HitDiceFormAction {
-  type: FormActionTypes.ChangeHitDice;
-  index: number;
-  value: ICombat['hitDice'][number];
-}
-
 export interface BackstoryFormAction {
   type: FormActionTypes.ChangeBackstory;
   key: keyof IBackstory;
@@ -85,8 +78,7 @@ export type FormActions =
   | BackstoryFormAction
   | CombatFormAction
   | DeathSavesFormAction
-  | AttackFormAction
-  | HitDiceFormAction;
+  | AttackFormAction;
 
 export function formReducer(state: ICharacterSheet, action: FormActions) {
   const stateClone = structuredClone(state);
@@ -134,10 +126,6 @@ export function formReducer(state: ICharacterSheet, action: FormActions) {
     }
     case FormActionTypes.ChangeAttack: {
       stateClone.combat.attacks[action.index][action.key] = action.value;
-      return stateClone;
-    }
-    case FormActionTypes.ChangeHitDice: {
-      stateClone.combat.hitDice[action.index] = action.value;
       return stateClone;
     }
     default:
@@ -208,7 +196,7 @@ export const initFormState: ICharacterSheet = character_sheet
         currentHitPoints: 0,
         temporaryHitPoints: 0,
         total: 0,
-        hitDice: [1, 4, 0],
+        hitDice: "",
         deathSaves: {
           successes: [false, false, false],
           failures: [false, false, false],
