@@ -1,16 +1,17 @@
 {
   "files": {
-    "main.css": "/components-display/static/css/main.eabbee40.css",
-    "main.js": "/components-display/static/js/main.7205a0f2.js",
+    "main.css": "/components-display/static/css/main.68d6fcad.css",
+    "main.js": "/components-display/static/js/main.18c58519.js",
     "static/js/787.e6776741.chunk.js": "/components-display/static/js/787.e6776741.chunk.js",
+    "static/media/2022-02_Playing-Dungeons-and-Dragons-Online_DNDExchange-Blog-Feature.jpg": "/components-display/static/media/2022-02_Playing-Dungeons-and-Dragons-Online_DNDExchange-Blog-Feature.543824d8a5410c1f87d6.jpg",
     "static/media/my-loader.svg": "/components-display/static/media/my-loader.9d34b838da0f21fb12860d8f2f632de8.svg",
     "index.html": "/components-display/index.html",
-    "main.eabbee40.css.map": "/components-display/static/css/main.eabbee40.css.map",
-    "main.7205a0f2.js.map": "/components-display/static/js/main.7205a0f2.js.map",
+    "main.68d6fcad.css.map": "/components-display/static/css/main.68d6fcad.css.map",
+    "main.18c58519.js.map": "/components-display/static/js/main.18c58519.js.map",
     "787.e6776741.chunk.js.map": "/components-display/static/js/787.e6776741.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.eabbee40.css",
-    "static/js/main.7205a0f2.js"
+    "static/css/main.68d6fcad.css",
+    "static/js/main.18c58519.js"
   ]
 }
