@@ -21,3 +21,12 @@ h1, h2, h3 {
 .align-center {
   text-align: center;
 }
+
+.dragons-form-wrapper {
+  background-image: url("./assets/images/2022-02_Playing-Dungeons-and-Dragons-Online_DNDExchange-Blog-Feature.jpg");
+  background-size: cover;
+}
+
+.dragons-form-wrapper .App {
+  max-width: 860px;
+}

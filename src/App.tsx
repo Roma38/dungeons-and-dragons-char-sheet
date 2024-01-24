@@ -11,24 +11,26 @@ function App() {
   const [isDragonsMode, setIsDragonsMode] = useState(true);
   
   return (
-    <div className="App">
-      <Button 
-        className="mode-toggle" 
-        onClick={() => setIsDragonsMode(!isDragonsMode)}
-        primary
-        circle
-      >
-        {isDragonsMode ? '🠈' : '🠊'}
-      </Button>
-      <h1>{isDragonsMode ? 'Dungeons And Dragons' : 'Components Library'}</h1>
-      {isDragonsMode 
-        ? <DungeonsAndDragons /> 
-        : <>
-            <Navigation activeTab={activeTab} setActiveTab={setActiveTab} />
-            {activeTab === 'button' && <ButtonsSection />}
-            {activeTab === 'input' && <InputSection />}
-            {activeTab === 'slider' && <SliderSection />}
-          </>}
+    <div className={isDragonsMode ? "dragons-form-wrapper" : "app-wrapper"}>
+      <div className="App">
+        <Button 
+          className="mode-toggle" 
+          onClick={() => setIsDragonsMode(!isDragonsMode)}
+          primary
+          circle
+        >
+          {isDragonsMode ? '🠈' : '🠊'}
+        </Button>
+        <h1>{isDragonsMode ? 'Dungeons And Dragons' : 'Components Library'}</h1>
+        {isDragonsMode 
+          ? <DungeonsAndDragons /> 
+          : <>
+              <Navigation activeTab={activeTab} setActiveTab={setActiveTab} />
+              {activeTab === 'button' && <ButtonsSection />}
+              {activeTab === 'input' && <InputSection />}
+              {activeTab === 'slider' && <SliderSection />}
+            </>}
+      </div>
     </div>
   );
 }

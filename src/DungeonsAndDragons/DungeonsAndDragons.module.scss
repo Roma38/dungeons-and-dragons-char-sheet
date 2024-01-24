@@ -1,8 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+
 $large-font: 30px;
 $small-font: 10px;
+$dragon-font: 'MedievalSharp', cursive;
+$section-background: #f0f8ff8a;
+
+:global(.dragons-form-wrapper h1) {
+  font-family: $dragon-font;
+}
 
 .form {
   font-size: $small-font;
+  text-shadow: 1px 1px 1px white;
   input, select {
     width: 100%;
   }
@@ -58,9 +67,10 @@ $small-font: 10px;
 .frame{
   text-align: center;
   margin-bottom: 10px;
-  border: 1px solid;
   padding: 5px;
   text-transform: uppercase;
+  background-color: $section-background;
+  border-radius: 5px;
   input {
     text-align: center;
   }
@@ -95,8 +105,9 @@ $small-font: 10px;
 
 .bordered_section {
   composes: column;
+  background-color: $section-background;
+  border-radius: 5px;
   align-items: center;
-  border: 1px solid;
   padding: 10px;
   margin-bottom: 10px;
 }
@@ -114,6 +125,9 @@ $small-font: 10px;
 
 .small_field {
   text-transform: capitalize;
+  input {
+    text-align: center;
+  }
 }
 
 .boxes {
@@ -131,8 +145,16 @@ $small-font: 10px;
   border-bottom: 1px solid;
   outline: none;
   box-shadow: none !important;
-  border-radius: 0;
+  border-radius: 5px;
   margin-bottom: 5px;
+}
+
+.secondary_field {
+  white-space: nowrap;
+  display: flex;
+  input {
+    margin-left: 10px;
+  }
 }
 
 .third_column {
@@ -159,22 +181,4 @@ $small-font: 10px;
   composes: column;
   text-align: center;
   gap: 10px;
-}
-
-.inputs_group {
-  display: flex;
-  border-bottom: 1px solid;
-  input, select {
-    border: none !important;
-    padding: 0!important;
-    box-shadow: none !important;
-  }
-  select {
-    /* for Firefox */
-    -moz-appearance: none;
-    /* for Chrome */
-    -webkit-appearance: none;
-    appearance: none;
-    padding-right: 15px;
-  }
 }

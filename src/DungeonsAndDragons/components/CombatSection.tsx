@@ -25,7 +25,7 @@ function CombatSection({ combat, equipment, dispatch }: IProps) {
   return (
     <section className={style.third_column}>
       <div className={style.bordered_section}>
-        <label className="display-flex">
+        <label className={style.secondary_field}>
           Hit Point Maximum
           <Input 
             className={style.bottom_border_field}
@@ -61,7 +61,7 @@ function CombatSection({ combat, equipment, dispatch }: IProps) {
 
       <div className={style.boxes}>
         <div className={style.bordered_section}>
-          <label className="display-flex">
+          <label className={style.secondary_field}>
             Total
             <Input
               className={style.bottom_border_field}
