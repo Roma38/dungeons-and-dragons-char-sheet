@@ -83,10 +83,12 @@ function CombatSection({ combat, equipment, dispatch }: IProps) {
       </div>
       <AttacksAndSpellcasting attacks={combat.attacks} dispatch={dispatch} />
 
-      <label className={style.column}>
-        <textarea rows={5} value={equipment} onChange={changeBackstoryHandler('equipment')} />
-        EQUIPMENT
-      </label>
+      <div className={style.section}>
+        <label className={style.column}>
+          <textarea rows={5} value={equipment} onChange={changeBackstoryHandler('equipment')} />
+          EQUIPMENT
+        </label>
+      </div>
     </section>
   );
 }

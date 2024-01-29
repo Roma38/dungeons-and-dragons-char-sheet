@@ -62,20 +62,22 @@ function SkillsAndSavingThrowsSection({ skills, savingThrows, otherProficiencies
         ))}
         SKILLS
       </div>
+      
+      <div className={style.section}>
+        <label className={style.large_number_field}>
+          <Input
+            type="number"
+            value={passiveWisdom}
+            onChange={changeSavingThrowHandler('passiveWisdom')}
+          />
+          <span>PASSIVE WISDOM (PERCEPTION)</span>
+        </label>
 
-      <label className={style.large_number_field}>
-        <Input
-          type="number"
-          value={passiveWisdom}
-          onChange={changeSavingThrowHandler('passiveWisdom')}
-        />
-        <span>PASSIVE WISDOM (PERCEPTION)</span>
-      </label>
-
-      <label className={style.column + ' align-center'}>
-        <textarea rows={5} value={otherProficiencies} onChange={changeBackstoryHandler('otherProficiencies')} />
-        OTHER PROFICIENCIES & LANGUAGES
-      </label>
+        <label className={style.column + ' align-center'}>
+          <textarea rows={5} value={otherProficiencies} onChange={changeBackstoryHandler('otherProficiencies')} />
+          OTHER PROFICIENCIES & LANGUAGES
+        </label>
+      </div>
     </section>
   );
 }

@@ -3,7 +3,7 @@
 $large-font: 30px;
 $small-font: 10px;
 $dragon-font: 'MedievalSharp', cursive;
-$section-background: #f0f8ff8a;
+$section-background: rgba(240, 248, 255, 0.7);
 
 :global(.dragons-form-wrapper h1) {
   font-family: $dragon-font;
@@ -17,7 +17,14 @@ $section-background: #f0f8ff8a;
   }
 }
 
+.section {
+  background-color: $section-background;
+  border-radius: 5px;
+  padding: 10px;
+}
+
 .top_section {
+  composes: section;
   display: flex;
   gap: 10px;
   align-items: center;
@@ -25,10 +32,10 @@ $section-background: #f0f8ff8a;
   justify-content: space-between;
 }
 
-.primary_field {
-  flex-basis: 40%;
-  flex-shrink: 0;
-}
+// .primary_field {
+//   flex-basis: 40%;
+//   flex-shrink: 0;
+// }
 
 .top_section_fields {
   display: flex;
@@ -65,12 +72,11 @@ $section-background: #f0f8ff8a;
 }
 
 .frame{
+  composes: section;
   text-align: center;
   margin-bottom: 10px;
   padding: 5px;
   text-transform: uppercase;
-  background-color: $section-background;
-  border-radius: 5px;
   input {
     text-align: center;
   }
@@ -101,14 +107,20 @@ $section-background: #f0f8ff8a;
   composes: column;
   width: 230px;
   flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.second_col_top_section {
+  composes: section;
+  composes: second_column;
+  padding-bottom: 0;
+  margin-bottom: 10px;
 }
 
 .bordered_section {
   composes: column;
-  background-color: $section-background;
-  border-radius: 5px;
+  composes: section;
   align-items: center;
-  padding: 10px;
   margin-bottom: 10px;
 }
 
@@ -179,6 +191,7 @@ $section-background: #f0f8ff8a;
 
 .fourth_column {
   composes: column;
+  composes: section;
   text-align: center;
   gap: 10px;
 }
