@@ -1,19 +1,16 @@
-import { ReactNode } from 'react';
+import { ButtonHTMLAttributes, ReactNode } from 'react';
 import { ReactComponent as Loader } from '../../assets/svg/my-loader.svg';
 import style from "./Button.module.scss";
 
-interface IProps {
+interface IProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
   primary?: boolean;
-  disabled?: boolean;
   loading?: boolean;
-  onClick?: () => void;
   size?: 'small' | 'medium' | 'large';
   circle?: boolean;
-  className?: string;
 }
 
-function Button({ children, primary, disabled, loading, size, circle, className, onClick}: IProps) {
+function Button({ children, primary, loading, size, circle, className, ...rest}: IProps) {
   let resultClassName = 'button ' + style[primary ? 'primary_button' : 'button'];
   if (size && size !== 'medium') {
     resultClassName += ' ' + style[size];
@@ -25,11 +22,7 @@ function Button({ children, primary, disabled, loading, size, circle, className,
     resultClassName += ' ' + className;
   }
 
-  return <button 
-    className={resultClassName} 
-    onClick={onClick}
-    disabled={disabled}
-  >
+  return <button className={resultClassName} {...rest}>
     {loading ? <Loader className={style.loader}/> : children}
   </button>;
 }
