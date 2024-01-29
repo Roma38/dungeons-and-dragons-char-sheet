@@ -16,7 +16,7 @@ function StatsSection({ stats, dispatch }: IProps) {
   }
 
   return (
-    <div className={style.wrapper}>
+    <div className={style.settings_wrapper}>
       <div className={style.second_col_top_section}>
         <label className={style.large_number_field}>
           <Input type="number" value={stats.inspiration} onChange={changeHandler('inspiration')} />

@@ -29,4 +29,7 @@ h1, h2, h3 {
 
 .dragons-form-wrapper .App {
   max-width: 860px;
+  .button {
+    background-color: #99c9c9cf;
+  }
 }

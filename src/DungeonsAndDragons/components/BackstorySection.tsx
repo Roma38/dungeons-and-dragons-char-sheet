@@ -16,27 +16,27 @@ function BackstorySection({ backstory, dispatch }: IProps) {
 
   return (
     <section className={style.fourth_column}>
-      <label>
+      <label className={style.column}>
         <textarea value={backstory.personalityTraits} onChange={changeHandler('personalityTraits')} rows={5} />
         PERSONALITY TRAITS
       </label>
 
-      <label>
+      <label className={style.column}>
         <textarea value={backstory.ideals} onChange={changeHandler('ideals')} rows={5} />
         IDEALS
       </label>
 
-      <label>
+      <label className={style.column}>
         <textarea value={backstory.bonds} onChange={changeHandler('bonds')} rows={5} />
         BONDS
       </label>
 
-      <label>
+      <label className={style.column}>
         <textarea value={backstory.flaws} onChange={changeHandler('flaws')} rows={5} />
         FLAWS
       </label>
 
-      <label>
+      <label className={style.column}>
         <textarea value={backstory.featuresAndTraits} onChange={changeHandler('featuresAndTraits')} rows={15} />
         FEATURES & TRAITS
       </label>

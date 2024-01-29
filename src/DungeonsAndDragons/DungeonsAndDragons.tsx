@@ -22,7 +22,7 @@ function DungeonsAndDragons() {
         <AbilytySection abilytyScores={state.abilytyScores} dispatch={dispatch} />
         <div className={style.column}>
           <StatsSection stats={state.stats} dispatch={dispatch} />
-          <div className={style.wrapper}>
+          <div className={style.settings_wrapper}>
             <SkillsAndSavingThrowsSection 
               skills={state.skills} 
               savingThrows={state.savingThrows} 
@@ -38,7 +38,7 @@ function DungeonsAndDragons() {
         </div>
         <BackstorySection backstory={state.backstory} dispatch={dispatch} />
       </div>
-      <div className="align-center">
+      <div className={style.submit_button_wrapper}>
         <Button primary>Submit</Button>
       </div>
     </form>
