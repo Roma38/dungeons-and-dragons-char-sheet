@@ -1,4 +1,4 @@
-import { ChangeEventHandler } from 'react';
+import { ChangeEvent } from 'react';
 import { Input } from '../../components';
 import { IStats } from '../types';
 import { FormActionTypes, StatsFormAction } from '../utils';
@@ -10,7 +10,7 @@ interface IProps {
 }
 
 function StatsSection({ stats, dispatch }: IProps) {
-  const changeHandler: (key: keyof IStats) => ChangeEventHandler<HTMLInputElement> = key => e => {
+  const changeHandler = (key: keyof IStats, e: ChangeEvent<HTMLInputElement>) => {
     const value = Number(e.target.value);
     dispatch({ type: FormActionTypes.ChangeStats, key, value })
   }
@@ -19,7 +19,7 @@ function StatsSection({ stats, dispatch }: IProps) {
     <div className={style.settings_wrapper}>
       <div className={style.second_col_top_section}>
         <label className={style.large_number_field}>
-          <Input type="number" value={stats.inspiration} onChange={changeHandler('inspiration')} />
+          <Input type="number" value={stats.inspiration} onChange={e => changeHandler('inspiration', e)} />
           <span>INSPIRATION</span>
         </label>
 
@@ -34,7 +34,7 @@ function StatsSection({ stats, dispatch }: IProps) {
           <Input 
             type="number" 
             value={stats.armorClass} 
-            onChange={changeHandler('armorClass')} 
+            onChange={e => changeHandler('armorClass', e)} 
             min={0}
           />
           ARMOR CLASS
@@ -44,7 +44,7 @@ function StatsSection({ stats, dispatch }: IProps) {
           <Input 
             type="number" 
             value={stats.initiative} 
-            onChange={changeHandler('initiative')} 
+            onChange={e => changeHandler('initiative', e)} 
             min={0}
           />
           INITIATIVE
@@ -54,7 +54,7 @@ function StatsSection({ stats, dispatch }: IProps) {
           <Input
             type="number"
             value={stats.speed}
-            onChange={changeHandler('speed')}
+            onChange={e => changeHandler('speed', e)}
             min={0}
           />
           SPEED

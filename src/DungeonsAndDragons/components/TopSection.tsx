@@ -1,4 +1,4 @@
-import { ChangeEventHandler } from 'react';
+import { ChangeEvent } from 'react';
 import { Input } from '../../components';
 import { IInfo, TAlignment, TClass, TRace } from '../types';
 import { FormActionTypes, InfoFormAction } from '../utils';
@@ -15,7 +15,7 @@ interface IProps {
 }
 
 function TopSection({ info, dispatch }: IProps) {
-  const changeHandler: (key: keyof IInfo) => ChangeEventHandler<HTMLInputElement | HTMLSelectElement> = key => e => {
+  const changeHandler = (key: keyof IInfo, e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const {value} = e.target;
     dispatch({ type: FormActionTypes.ChangeInfo, key, value })
   }
@@ -23,7 +23,7 @@ function TopSection({ info, dispatch }: IProps) {
   return (
     <section className={style.top_section}>
       <label className={style.primary_field}>
-        <Input value={info.characterName} onChange={changeHandler('characterName')} />
+        <Input value={info.characterName} onChange={e => changeHandler('characterName', e)} />
         CHARACTER NAME
       </label>
 
@@ -33,7 +33,7 @@ function TopSection({ info, dispatch }: IProps) {
             <select
               className={inputStyles.input + ' ' + inputStyles.medium}
               value={info.class}
-              onChange={changeHandler('class')}
+              onChange={e => changeHandler('class', e)}
             >
               {CLASSES.map(item => <option key={item}>{item}</option>)}
             </select>
@@ -43,12 +43,12 @@ function TopSection({ info, dispatch }: IProps) {
         </label>
 
         <label>
-          <Input value={info.background} onChange={changeHandler('background')} />
+          <Input value={info.background} onChange={e => changeHandler('background', e)} />
           BACKGROUND
         </label>
 
         <label>
-          <Input value={info.playerName} onChange={changeHandler('playerName')} />
+          <Input value={info.playerName} onChange={e => changeHandler('playerName', e)} />
           PLAYER NAME
         </label>
 
@@ -56,7 +56,7 @@ function TopSection({ info, dispatch }: IProps) {
           <select 
             className={inputStyles.input + ' ' + inputStyles.medium}
             value={info.race}
-            onChange={changeHandler('race')}
+            onChange={e => changeHandler('race', e)}
           >
             {RACES.map(race => <option key={race}>{race}</option>)}
           </select>
@@ -67,7 +67,7 @@ function TopSection({ info, dispatch }: IProps) {
           <select 
             className={inputStyles.input + ' ' + inputStyles.medium}
             value={info.alignment}
-            onChange={changeHandler('alignment')}
+            onChange={e => changeHandler('alignment', e)}
           >
             {ALIGNMENTS.map(alignment => <option key={alignment}>{alignment}</option>)}
           </select>
@@ -78,7 +78,7 @@ function TopSection({ info, dispatch }: IProps) {
           <Input 
             type='number' 
             value={info.experiencePoints} 
-            onChange={changeHandler('experiencePoints')} 
+            onChange={e => changeHandler('experiencePoints', e)} 
             min={0} 
           />
           EXPERIENCE POINTS

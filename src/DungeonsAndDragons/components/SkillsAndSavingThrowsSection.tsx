@@ -1,5 +1,4 @@
-
-import { ChangeEventHandler } from 'react';
+import { ChangeEvent } from 'react';
 import { Input } from '../../components';
 import { ISkills, ISavingThrows, IBackstory } from '../types';
 import { FormActionTypes, SavingThrowFormAction, SkillFormAction, BackstoryFormAction } from '../utils';
@@ -13,17 +12,17 @@ interface IProps {
 }
 
 function SkillsAndSavingThrowsSection({ skills, savingThrows, otherProficiencies, dispatch }: IProps) {
-  const changeSavingThrowHandler: (key: keyof ISavingThrows) => ChangeEventHandler<HTMLInputElement> = key => e => {
+  const changeSavingThrowHandler = (key: keyof ISavingThrows, e: ChangeEvent<HTMLInputElement>) => {
     const value = Number(e.target.value);
     dispatch({ type: FormActionTypes.ChangeSavingThrow, key, value })
   };
 
-  const changeSkillHandler: (key: keyof ISkills) => ChangeEventHandler<HTMLInputElement> = key => e => {
+  const changeSkillHandler = (key: keyof ISkills, e: ChangeEvent<HTMLInputElement>) => {
     const value = Number(e.target.value);
     dispatch({ type: FormActionTypes.ChangeSkill, key, value })
   };
 
-  const changeBackstoryHandler: (key: keyof IBackstory) => ChangeEventHandler<HTMLTextAreaElement> = key => e => {
+  const changeBackstoryHandler = (key: keyof IBackstory, e: ChangeEvent<HTMLTextAreaElement>) => {
     const value = e.target.value;
     dispatch({ type: FormActionTypes.ChangeBackstory, key, value })
   };
@@ -40,7 +39,7 @@ function SkillsAndSavingThrowsSection({ skills, savingThrows, otherProficiencies
               className={style.bottom_border_field}
               type="number"
               value={value}
-              onChange={changeSavingThrowHandler(key)}
+              onChange={e => changeSavingThrowHandler(key, e)}
             />
             {key}
           </label>
@@ -55,7 +54,7 @@ function SkillsAndSavingThrowsSection({ skills, savingThrows, otherProficiencies
               className={style.bottom_border_field}
               type="number"
               value={value}
-              onChange={changeSkillHandler(key)}
+              onChange={e => changeSkillHandler(key, e)}
             />
             {key}
           </label>
@@ -68,13 +67,13 @@ function SkillsAndSavingThrowsSection({ skills, savingThrows, otherProficiencies
           <Input
             type="number"
             value={passiveWisdom}
-            onChange={changeSavingThrowHandler('passiveWisdom')}
+            onChange={e => changeSavingThrowHandler('passiveWisdom', e)}
           />
           <span>PASSIVE WISDOM (PERCEPTION)</span>
         </label>
 
         <label className={style.column + ' align-center'}>
-          <textarea rows={5} value={otherProficiencies} onChange={changeBackstoryHandler('otherProficiencies')} />
+          <textarea rows={5} value={otherProficiencies} onChange={e => changeBackstoryHandler('otherProficiencies', e)} />
           OTHER PROFICIENCIES & LANGUAGES
         </label>
       </div>

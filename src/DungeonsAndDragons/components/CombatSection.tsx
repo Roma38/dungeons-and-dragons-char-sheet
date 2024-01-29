@@ -1,4 +1,4 @@
-import { ChangeEventHandler } from 'react';
+import { ChangeEvent } from 'react';
 import { Input } from '../../components';
 import { DeathSaves, AttacksAndSpellcasting } from '.';
 import { ICombat, IBackstory } from '../types';
@@ -12,12 +12,12 @@ interface IProps {
 }
 
 function CombatSection({ combat, equipment, dispatch }: IProps) {
-  const changeCombatHandler: (key: keyof TCombatValues) => ChangeEventHandler<HTMLInputElement> = key => e => {
+  const changeCombatHandler = (key: keyof TCombatValues, e: ChangeEvent<HTMLInputElement>) => {
     const value = key === 'hitDice' ? e.target.value : Number(e.target.value);
     dispatch({ type: FormActionTypes.ChangeCombat, key, value });
   };
 
-  const changeBackstoryHandler: (key: keyof IBackstory) => ChangeEventHandler<HTMLTextAreaElement> = key => e => {
+  const changeBackstoryHandler = (key: keyof IBackstory, e: ChangeEvent<HTMLTextAreaElement>) => {
     const value = e.target.value;
     dispatch({ type: FormActionTypes.ChangeBackstory, key, value });
   };
@@ -31,7 +31,7 @@ function CombatSection({ combat, equipment, dispatch }: IProps) {
             className={style.bottom_border_field}
             type="number"
             value={combat.hitPointMaximum}
-            onChange={changeCombatHandler('hitPointMaximum')}
+            onChange={e =>changeCombatHandler('hitPointMaximum', e)}
             min={0}
           />
         </label>
@@ -40,7 +40,7 @@ function CombatSection({ combat, equipment, dispatch }: IProps) {
           <Input 
             type="number" 
             value={combat.currentHitPoints} 
-            onChange={changeCombatHandler('currentHitPoints')} 
+            onChange={e =>changeCombatHandler('currentHitPoints', e)} 
             min={0}
           />
           CURRENT HIT POINTS
@@ -52,7 +52,7 @@ function CombatSection({ combat, equipment, dispatch }: IProps) {
           <Input 
             type="number" 
             value={combat.temporaryHitPoints} 
-            onChange={changeCombatHandler('temporaryHitPoints')}
+            onChange={e =>changeCombatHandler('temporaryHitPoints', e)}
             min={0}
           />
           TEMPORARY HIT POINTS
@@ -67,14 +67,14 @@ function CombatSection({ combat, equipment, dispatch }: IProps) {
               className={style.bottom_border_field}
               type="number"
               value={combat.total}
-              onChange={changeCombatHandler('total')}
+              onChange={e =>changeCombatHandler('total', e)}
               min={0}
             />
           </label>
 
           <Input 
             value={combat.hitDice} 
-            onChange={changeCombatHandler('hitDice')}
+            onChange={e =>changeCombatHandler('hitDice', e)}
             pattern='(\d+)?d(\d+)([\+\-]\d+)?'
           />
           HIT DICE
@@ -85,7 +85,7 @@ function CombatSection({ combat, equipment, dispatch }: IProps) {
 
       <div className={style.section}>
         <label className={style.column}>
-          <textarea rows={5} value={equipment} onChange={changeBackstoryHandler('equipment')} />
+          <textarea rows={5} value={equipment} onChange={e =>changeBackstoryHandler('equipment', e)} />
           EQUIPMENT
         </label>
       </div>
