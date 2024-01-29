@@ -1,9 +1,8 @@
 import { FormEvent, useReducer } from "react";
 import { Button } from '../components';
-import { TopSection, AbilytySection, StatsSection, SkillsAndSavingThrowsSection, CombatSection, BackstorySection } from './components';
+import { TopSection, AbilytySection, StatsSection, SkillsAndSavingThrowsSection, CombatSection, BackstorySection, ImportAndExport } from './components';
 import { initFormState, formReducer } from "./utils";
 import style from "./DungeonsAndDragons.module.scss";
-
 
 function DungeonsAndDragons() {
   const [state, dispatch] = useReducer(formReducer, initFormState);
@@ -11,7 +10,6 @@ function DungeonsAndDragons() {
   const submitHandler = (event: FormEvent<HTMLFormElement>) => {
     // 👇️ prevent page refresh
     event.preventDefault();
-    console.log(state);
     localStorage.setItem('character_sheet', JSON.stringify(state));
   };
   
@@ -39,8 +37,9 @@ function DungeonsAndDragons() {
         <BackstorySection backstory={state.backstory} dispatch={dispatch} />
       </div>
       <div className={style.submit_button_wrapper}>
-        <Button primary>Submit</Button>
+        <Button type="submit" primary>Submit</Button>
       </div>
+      <ImportAndExport data={state} dispatch={dispatch} />
     </form>
   );
 }

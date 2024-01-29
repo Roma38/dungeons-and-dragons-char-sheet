@@ -10,6 +10,7 @@ export enum FormActionTypes {
   ChangeBackstory = "ChangeBackstory",
   ChangeDeathSave = "ChangeDeathSave",
   ChangeAttack = "ChangeAttack",
+  ImportJSON = "ImportJSON"
 }
 
 export type TCombatValues = Omit<ICombat, 'deathSaves' | 'attacks'>;
@@ -69,6 +70,11 @@ export interface BackstoryFormAction {
   value: IBackstory[keyof IBackstory];
 }
 
+export interface ImportAction {
+  type: FormActionTypes.ImportJSON;
+  value: ICharacterSheet;
+}
+
 export type FormActions =
   | InfoFormAction
   | AbilityFormAction
@@ -78,7 +84,8 @@ export type FormActions =
   | BackstoryFormAction
   | CombatFormAction
   | DeathSavesFormAction
-  | AttackFormAction;
+  | AttackFormAction
+  | ImportAction;
 
 export function formReducer(state: ICharacterSheet, action: FormActions) {
   const stateClone = structuredClone(state);
@@ -128,6 +135,10 @@ export function formReducer(state: ICharacterSheet, action: FormActions) {
       stateClone.combat.attacks[action.index][action.key] = action.value;
       return stateClone;
     }
+    case FormActionTypes.ImportJSON: {
+      return action.value;
+    }
+
     default:
       return state;
   }
@@ -230,47 +241,57 @@ export const initFormState: ICharacterSheet = character_sheet
       },
     };
 
-    function getLevelAndProficiencyBonus(exp: IInfo['experiencePoints']): { level: IInfo['level'], proficiencyBonus: IStats['proficiencyBonus']} {
-      switch (true) {
-        case exp < 300:
-          return {level: 1, proficiencyBonus: 2};
-        case exp < 900:
-          return {level: 2, proficiencyBonus: 2};
-        case exp < 2700:
-          return { level: 3, proficiencyBonus: 2 };
-        case exp < 6500:
-          return { level: 4, proficiencyBonus: 2 };
-        case exp < 14000:
-          return { level: 5, proficiencyBonus: 3 };
-        case exp < 23000:
-          return { level: 6, proficiencyBonus: 3 };
-        case exp < 34000:
-          return { level: 7, proficiencyBonus: 3 };
-        case exp < 48000:
-          return { level: 8, proficiencyBonus: 3 };
-        case exp < 64000:
-          return { level: 9, proficiencyBonus: 4 };
-        case exp < 85000:
-          return { level: 10, proficiencyBonus: 4 };
-        case exp < 100000:
-          return { level: 11, proficiencyBonus: 4 };
-        case exp < 120000:
-          return { level: 12, proficiencyBonus: 4 };
-        case exp < 140000:
-          return { level: 13, proficiencyBonus: 5 };
-        case exp < 165000:
-          return { level: 14, proficiencyBonus: 5 };
-        case exp < 195000:
-          return { level: 15, proficiencyBonus: 5 };
-        case exp < 225000:
-          return { level: 16, proficiencyBonus: 5 };
-        case exp < 265000:
-          return { level: 17, proficiencyBonus: 6 };
-        case exp < 305000:
-          return { level: 18, proficiencyBonus: 6 };
-        case exp < 355000:
-          return { level: 19, proficiencyBonus: 6 };
-        default:
-          return { level: 20, proficiencyBonus: 6 };
-      }
-    }
+function getLevelAndProficiencyBonus(exp: IInfo['experiencePoints']): { level: IInfo['level'], proficiencyBonus: IStats['proficiencyBonus']} {
+  switch (true) {
+    case exp < 300:
+      return {level: 1, proficiencyBonus: 2};
+    case exp < 900:
+      return {level: 2, proficiencyBonus: 2};
+    case exp < 2700:
+      return { level: 3, proficiencyBonus: 2 };
+    case exp < 6500:
+      return { level: 4, proficiencyBonus: 2 };
+    case exp < 14000:
+      return { level: 5, proficiencyBonus: 3 };
+    case exp < 23000:
+      return { level: 6, proficiencyBonus: 3 };
+    case exp < 34000:
+      return { level: 7, proficiencyBonus: 3 };
+    case exp < 48000:
+      return { level: 8, proficiencyBonus: 3 };
+    case exp < 64000:
+      return { level: 9, proficiencyBonus: 4 };
+    case exp < 85000:
+      return { level: 10, proficiencyBonus: 4 };
+    case exp < 100000:
+      return { level: 11, proficiencyBonus: 4 };
+    case exp < 120000:
+      return { level: 12, proficiencyBonus: 4 };
+    case exp < 140000:
+      return { level: 13, proficiencyBonus: 5 };
+    case exp < 165000:
+      return { level: 14, proficiencyBonus: 5 };
+    case exp < 195000:
+      return { level: 15, proficiencyBonus: 5 };
+    case exp < 225000:
+      return { level: 16, proficiencyBonus: 5 };
+    case exp < 265000:
+      return { level: 17, proficiencyBonus: 6 };
+    case exp < 305000:
+      return { level: 18, proficiencyBonus: 6 };
+    case exp < 355000:
+      return { level: 19, proficiencyBonus: 6 };
+    default:
+      return { level: 20, proficiencyBonus: 6 };
+  }
+}
+
+export function exportHandler(data: ICharacterSheet) {
+  const anchor = document.createElement("a");
+  const file = new Blob([JSON.stringify(data)], { type: "text/plain" });
+  anchor.href = URL.createObjectURL(file);
+  anchor.download = "CharacterSheet.json";
+  document.body.appendChild(anchor); // Required for this to work in FireFox
+  anchor.click();
+  anchor.remove();
+}
