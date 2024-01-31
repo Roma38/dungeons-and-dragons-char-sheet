@@ -1,7 +1,7 @@
 {
-  "name": "components-display",
+  "name": "dungeons-and-dragons-char-sheet",
   "version": "0.1.0",
-  "homepage": "https://Roma38.github.io/components-display",
+  "homepage": "https://roma38.github.io/dungeons-and-dragons-char-sheet",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
