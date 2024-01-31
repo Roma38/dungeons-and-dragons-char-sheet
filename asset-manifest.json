@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/components-display/static/css/main.21413093.css",
-    "main.js": "/components-display/static/js/main.2146bd1b.js",
-    "static/js/787.e6776741.chunk.js": "/components-display/static/js/787.e6776741.chunk.js",
-    "static/media/2022-02_Playing-Dungeons-and-Dragons-Online_DNDExchange-Blog-Feature.jpg": "/components-display/static/media/2022-02_Playing-Dungeons-and-Dragons-Online_DNDExchange-Blog-Feature.543824d8a5410c1f87d6.jpg",
-    "static/media/my-loader.svg": "/components-display/static/media/my-loader.9d34b838da0f21fb12860d8f2f632de8.svg",
-    "index.html": "/components-display/index.html",
-    "main.21413093.css.map": "/components-display/static/css/main.21413093.css.map",
-    "main.2146bd1b.js.map": "/components-display/static/js/main.2146bd1b.js.map",
-    "787.e6776741.chunk.js.map": "/components-display/static/js/787.e6776741.chunk.js.map"
+    "main.css": "/dungeons-and-dragons-char-sheet/static/css/main.3bd269f5.css",
+    "main.js": "/dungeons-and-dragons-char-sheet/static/js/main.5d8e152e.js",
+    "static/js/787.80c7538b.chunk.js": "/dungeons-and-dragons-char-sheet/static/js/787.80c7538b.chunk.js",
+    "static/media/2022-02_Playing-Dungeons-and-Dragons-Online_DNDExchange-Blog-Feature.jpg": "/dungeons-and-dragons-char-sheet/static/media/2022-02_Playing-Dungeons-and-Dragons-Online_DNDExchange-Blog-Feature.543824d8a5410c1f87d6.jpg",
+    "static/media/my-loader.svg": "/dungeons-and-dragons-char-sheet/static/media/my-loader.9d34b838da0f21fb12860d8f2f632de8.svg",
+    "index.html": "/dungeons-and-dragons-char-sheet/index.html",
+    "main.3bd269f5.css.map": "/dungeons-and-dragons-char-sheet/static/css/main.3bd269f5.css.map",
+    "main.5d8e152e.js.map": "/dungeons-and-dragons-char-sheet/static/js/main.5d8e152e.js.map",
+    "787.80c7538b.chunk.js.map": "/dungeons-and-dragons-char-sheet/static/js/787.80c7538b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.21413093.css",
-    "static/js/main.2146bd1b.js"
+    "static/css/main.3bd269f5.css",
+    "static/js/main.5d8e152e.js"
   ]
 }
